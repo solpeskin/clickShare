@@ -1,0 +1,51 @@
+.privBody {
+    background-color: rgb(53, 10, 133);
+    header {
+        background-color: $rosaOscuro;
+    }
+
+    footer {
+        background-color: rgb(78, 78, 78);
+
+        .mandar {
+            color: rgb(78, 78, 78) !important;
+        }
+    }
+
+    .politica-priv {
+        width: 500px;
+        font-size: 20px;
+        margin: 50px auto;
+
+        h2 {
+            font-weight: 900;
+            color: $azul;
+            font-size: 50px;
+            margin-bottom: 30px;
+        }
+
+        p {
+            margin-bottom: 50px;
+            line-height: 30px;
+            font-weight: 500;
+            color: rgb(29, 6, 71);
+
+            span {
+                font-size: $size *3.5;
+                color: $azul;
+            }
+        }   
+    }
+}
+
+// política de privacidad 
+@media screen and (max-width: 470px){
+        
+    .politica-priv {
+        width: 300px !important;
+
+        h2 {
+            font-size: 30px;
+        }
+    }
+}

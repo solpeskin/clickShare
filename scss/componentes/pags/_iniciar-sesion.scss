@@ -1,0 +1,98 @@
+
+.is {
+    height: 100% !important;
+    background-color: $amarillo;
+    text-align: center;
+
+    svg {
+        margin-top: 20px;
+        fill: $azul;
+        transition: all 0.3s;
+
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+
+    .conteinerCompu {
+        margin: 20px auto;
+        text-align: center;
+
+
+        h1 {
+            display: inline;
+            color: $azul;
+            text-shadow: 10px 10px $rosaClaro;
+            font-size: 80px;
+            font-weight: 900;
+            word-wrap: break-word;
+        }
+
+        a {
+            color: $azul;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        form {
+            display: inline-flex;
+            flex-direction: column;
+            
+            input {
+                @include tamaño (500px, 50px);
+                border:none;
+                outline: $amarillo;
+                padding-left: 10px;
+            }
+
+            .boton {
+                transition: all 0.3s ease;
+                @include boton ($azul, white);
+                @include tamaño (200px, 50px)
+            }
+
+            h6 {
+                text-align: start;
+                color: $azul;
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+    // compu
+    @media screen and (min-width: 961px){
+        svg {
+            position: fixed;
+            top: 20px;
+            left: 50px;
+        }
+    }
+
+    // ipad
+    @media screen and (max-width: 961px){
+        @include flex (column, center);
+    }
+
+    // mobile
+    @media screen and  (max-width: 580px){
+        transform: scale(0.8);
+
+        .conteinerCompu{
+            text-align: start;
+            
+            form input {
+                width: 300px;
+                text-align: start ;
+            }
+        }
+    }
+
+    @media screen and (max-width: 300px){
+        transform: scale(0.6);
+        text-align: start;
+
+    }
+}

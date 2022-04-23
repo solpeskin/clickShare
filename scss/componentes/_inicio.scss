@@ -1,0 +1,52 @@
+
+#inicio, #pre-footer {
+    height: 100vh;
+    padding: 4% 9%;
+
+    color: $azul;
+
+    /*fondo*/
+    background-color: $amarillo;;
+    background-attachment: fixed;
+
+    /*textos*/
+    h1,h2 {
+        width: 350px;
+        font-size: 100px;
+        font-weight: 800;
+        word-wrap: break-word;
+
+        text-shadow: 10px 10px $rosaClaro ;
+    }
+
+    h4 {
+        background-color: $amarillo;
+        font-size: $size *1.7; 
+        margin-bottom: 30px;
+    }
+
+    a {
+        text-decoration: none;
+        
+        button {
+            @include tamaño (180px, 50px);
+            @include boton ($azul, white);
+            transition: all 0.3s ease;
+
+        }
+    }
+
+    
+}
+
+// mobile
+@media screen and (max-width: 380px){
+    #inicio {
+        height: 100vh;
+
+        h1 {
+            width: 200px;
+            font-size: 80px;
+        }
+    } 
+}

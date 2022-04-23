@@ -1,0 +1,184 @@
+footer {
+    width: 100%;
+    padding: 50px ;
+    background-color: $rosaOscuro;
+    @include flex (row, space-evenly);
+
+    .nosotros {
+        width: 300px;
+        color: white;
+
+        h6 {
+            font-size: 30px;
+        }
+    }
+
+    .comments {
+        text-align: start;
+        
+        .enviar label {
+            @include flex (column, start);
+
+            .comentarios{
+                width: 300px;
+                min-height: 40px;
+
+                border: none;
+                border-radius: 20px;
+                outline-color: $rosaClaro;
+
+                background-color: white;
+                font-size: 20px;
+                padding: 0 10px
+            }
+
+            .mandar {
+                @include tamaño (100px, 40px);
+                @include boton (white, $rosaOscuro);
+                transition: all 0.2s ease;
+            }
+
+            .graciasComentario {
+                color: white;
+                @media screen and (max-width: 1080px){
+                    margin: 0 auto;
+                }
+            }
+        }
+
+        h4 {
+            font-size: 20px;
+            text-align: start;
+            color:white;
+        }
+    }
+
+    .pagsTexts {
+        @include flex (row, space-between);
+
+        .texts, .redes {
+            margin: 0 60px;
+            ul {
+                @include flex (column, start);
+                padding: 0;
+    
+                li {
+                    display: inline;
+                    width: 150px;
+                    list-style: none;
+                    margin-bottom: 15px;
+                } 
+            }
+    
+            a, h5 {
+                text-decoration: none;
+                font-size: 18px;
+                color: white;
+    
+                &:hover {
+                    color: $amarillo;                  
+                }
+                
+            }
+    
+            h5 {
+                font-weight: 700;
+            }
+        }
+    }
+}
+
+// footer para el responsive mobil, ipad y un poco de compu (a partir de 1080 width)
+@media screen and (max-width: 1080px){
+    
+    footer {
+        .texts, .redes {
+            margin: 0 30px;
+        }
+        .comments {
+
+            .enviar label{
+                .comentarios {
+                    width: 200px;
+                }
+                
+            }
+            
+        }
+
+    }
+}
+
+@media screen and (max-width: 947px){
+    
+    footer {
+        .comments {
+            display: none;
+        }
+    }
+}
+
+@media screen and (max-width: 760px){
+    
+    footer {
+        @include flex (column, center);
+
+        .nosotros {
+            text-align: center;
+            width: 100%;
+            margin-bottom: 30px;
+        }
+        .comments {
+            display: block;
+            margin-bottom: 30px;
+
+            h4 {
+                text-align: center
+            }
+
+            .enviar label{
+                @include flex (column, center);
+
+                .comentarios, .mandar{
+                    margin: 10px auto
+                }
+
+                .comentarios {
+                    width: 250px;
+                }
+                
+            }
+            
+        }
+
+        .pagsTexts {
+            width: auto;
+            
+            .texts, .redes {
+                margin: 0 30px;
+            }
+        }
+            
+    }
+}
+
+@media screen and (max-width: 460px){
+    footer {
+        .pagsTexts, .nosotros {
+            transform: scale(0.8);
+        }
+
+        .comments {
+            transform: scale(0.9);
+        }
+    }
+}
+
+@media screen and (max-width: 400px){
+    footer {
+        .pagsTexts {
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+}

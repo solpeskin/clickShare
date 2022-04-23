@@ -1,0 +1,28 @@
+#pre-footer {
+    text-align: center;
+    padding: 250px 0px;
+
+    @include flex (column, center);
+        
+    h2 {
+        width: auto;
+    }
+
+    h2, button {
+        margin: 0 auto;
+        display: inline;
+    }
+
+    @media screen and (max-width: 540px){
+        h2 {
+            font-size: 80px !important;
+        }
+    }
+    
+    @media screen and (max-width: 400px){
+        h2 {
+            font-size: 50px !important;
+        }
+    }
+}
+

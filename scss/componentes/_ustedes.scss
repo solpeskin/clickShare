@@ -1,0 +1,108 @@
+#ustedes {
+    background-color: $azul;
+    text-align: end;
+    padding: 80px;
+    height: auto;
+    @include flex(row, space-evenly);
+
+    h2 {
+        display: inline-block;
+        width: 500px;
+        line-height: 150px;
+        word-wrap: break-word;
+        
+        -webkit-text-fill-color: $azul;
+        -webkit-text-stroke-color: $rosaClaro;
+        -webkit-text-stroke-width: 3px;
+
+        font-family: 'Work Sans', sans-serif;
+    
+        font-weight: 900;
+
+        @media screen and (min-width: 1226px){
+            font-size: 200px;
+        }
+    }
+
+    .conteiners {
+        display: inline-block;
+
+        div {
+            background-color: white;
+            border-radius: 15px;
+
+            @media screen and (min-width: 662px){
+                @include tamaño (500px, 250px );
+            }
+
+            @include espacios (0 150px 30px 40px, 40px);
+
+            .comillas {
+                font-size: 50px;
+                font-weight: 700;
+            }
+
+            &:hover {
+                
+                box-shadow: 1px 1px 20px white;
+            }
+        }
+        
+    }
+
+}
+
+@media screen and (max-width: 1225px){
+    #ustedes {
+        h2 {
+            font-size: 180px;
+            width: 420px;
+        }
+    }
+    .conteiners {
+        div {
+            margin-right: 0px  !important;
+        }
+    }
+}
+
+@media screen and (max-width: 961px){
+    #ustedes {
+        flex-direction: column-reverse;
+
+        h2 {    
+            width: 500px;
+            margin: 0 auto;   
+            font-size: 100px ;
+        }
+
+
+        .conteiners {
+            display: flex;
+            flex-direction: row;
+            
+        }
+    }
+}
+
+
+@media screen and (max-width: 661px){
+    #ustedes {
+        flex-direction: column-reverse;
+
+        h2{
+            font-size: 50px !important;
+            width: auto;
+        }
+        .conteiners {
+            display: flex;
+            flex-direction: column;
+
+            div {
+                max-width: 500px ;
+                min-width: 200px ;
+                margin-left:  0 ;
+            }      
+        }
+    }
+}

@@ -1,0 +1,48 @@
+/*generales*/
+
+// variables 
+$size: 10px;
+$amarillo: #FFFA4D;
+$rosaClaro: #F2C9E1;
+$rosaOscuro: #E04DB0;
+$rosaOscuro2:rgb(165, 46, 125);
+$azul: #5902EC;
+$azulOscuro:#4500bb;
+
+// mixins 
+@mixin tamaño ($num, $num2) {
+    width: $num;
+    height: $num2;
+}
+
+@mixin espacios ($margin, $padding) {
+    margin: $margin;
+    padding: $padding;
+}
+
+@mixin sticky ($top) {
+    position: sticky;
+    top: $top;
+}
+
+@mixin flex ($direction,$justify){
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+}
+
+@keyframes opacidad {
+    0% {opacity: 0%;}
+    100% {opacity: 100%;}
+}
+
+@mixin boton ($color, $colorTexto){
+    background-color: $color;
+    color: $colorTexto;
+    border: 1px solid $color;
+
+    &:hover {
+        background:none;
+        color: $color;
+    }
+}

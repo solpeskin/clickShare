@@ -1,0 +1,196 @@
+// cuando baja 
+
+.scrollDown {
+    transform: translate3d(0, -100%, 0);
+}
+
+.scrollUp {
+    transform: none;
+}
+
+.header1 {
+    transition: transform 0.4s;  
+    padding:  20px 20px ; 
+    background-color: $azul;
+    @include sticky (0%); 
+    z-index: 4;
+    
+
+    nav {
+
+        div {
+            @include flex (row, space-between);
+            align-items: center;
+
+            a {
+                color: white;
+            }
+
+            .menu-paginas {
+                .clickshare {
+                    color: white;
+                    font-weight: 700;
+                    font-size: 30px;
+                    margin-right: 30px;
+                    text-decoration: none;
+                }
+
+                .items-menu {
+                    @include flex (row, start);
+                    padding-left: 0px;
+                    margin-bottom: 0px;
+
+                    li {
+                        @include flex (row, center);
+                        align-items: center;
+                        @include tamaño (100px, 40px);
+                        transition: all 0.2s;
+
+                        a {
+                            text-decoration: none;
+                        }
+                    }
+
+                }
+            }
+
+            .botones button a{
+                text-decoration: none;
+            }
+            
+            .espacio {
+                width: 200px;
+            }
+
+        }
+    }
+}
+
+// compu
+@media screen and (min-width: 961px) {
+    header {
+        .menu-mobile {
+            .list-mobile {
+                display: none;
+            }
+
+            li:hover {
+                color: white;
+                transform:translateY(-3px);
+            }
+
+            .botones {
+                button {
+                    @include tamaño (140px, $size *4.5);
+                    margin: $size *0.2;
+
+                    a {
+                        text-decoration: none;
+                    }
+                
+                    border-radius: 4px;
+                }
+
+                .iniciar-sesion, .registrarse {
+                    background:none;
+                    border: 0.4px solid white;
+                    transition: all 0.3s ease;
+
+                    a {
+                        color: white;
+                    }
+
+
+                    &:hover {
+                        border: none;
+                        background-color: white;
+
+                        a {
+                            color: $azul;
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+// media query 
+// menu para el responsive en ipad y mobile 
+@media screen and (max-width: 961px){
+    .header1 {
+        .menu-mobile {
+            display: inline-flex;
+            flex-direction: column;
+
+            .allMenu {
+                background-color: $azul;
+                width: 100px;
+                opacity: 0%;
+                transition: all 0.7s ease;
+
+                .clickshare {
+                    display: none;
+                }
+
+                div {
+                    display: none;
+                }
+            }
+
+            .botonHeader:active .allMenu {
+                display: none;
+            }
+
+            &:hover .allMenu{
+                opacity: 100%;
+                left: 0px;
+                position: absolute;
+                @include flex (column, start);
+                @include tamaño (200px, 100vh);
+                padding: 10px;
+
+
+                ul{
+                    width: 170px
+                }
+
+                div, div ul {
+                    @include flex (column, center);
+                    align-items: center;
+
+                    li, button {
+                        border: none;
+
+                        width: 200px;
+                        @include espacios (0, 30px 20px);
+
+                        display: inline-block;
+                        text-align: start;
+
+                        a {
+                            text-align: start;
+
+                            &:hover {
+                                color: rgb(255, 115, 201);
+                            }
+
+                        }
+                    } 
+
+                    ul {
+                        border-bottom: 0.5px rgb(204, 204, 204) solid;
+                        padding-bottom: 10px;
+                    }
+
+                    button {
+                        background: none;
+                        padding-bottom: 0%;
+                    }
+                }
+
+            }
+        }
+    }
+}
