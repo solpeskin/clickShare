@@ -1,6 +1,4 @@
-const nombreUsuarioTxt = document.querySelector(".nombreUsuario");
 const gruposAppend = document.querySelector(".grupos");
-
 let grupos = [];
 
 function checkearGrupos (){
@@ -9,9 +7,4 @@ function checkearGrupos (){
     }
 }
 
-function perfilUsuario (){
-    nombreUsuarioTxt.innerHTML = currentUser.username;
-}
-
-checkearGrupos()
-perfilUsuario()  
+checkearGrupos ()
