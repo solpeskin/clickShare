@@ -54,7 +54,7 @@
   text-decoration: none;
 }
 
-#inicio a button, #pre-footer a button {
+#inicio button, #pre-footer button {
   width: 180px;
   height: 50px;
   background-color: #5902EC;
@@ -62,9 +62,10 @@
   border: 1px solid #5902EC;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
+  margin-right: 20px;
 }
 
-#inicio a button:hover, #pre-footer a button:hover {
+#inicio button:hover, #pre-footer button:hover {
   background: none;
   color: #5902EC;
 }
@@ -960,11 +961,6 @@ footer .pagsTexts .texts h5, footer .pagsTexts .redes h5 {
   background-color: white;
 }
 
-#gruposBody .grupos-pag .headerFake .perfil .perfil-options button {
-  background: none;
-  border: none;
-}
-
 #gruposBody .grupos-pag .headerFake .perfil .cerrado {
   display: none;
 }
@@ -1547,11 +1543,6 @@ footer .pagsTexts .texts h5, footer .pagsTexts .redes h5 {
   padding: 20px;
   border-radius: 20px;
   background-color: white;
-}
-
-#gruposBody .grupos-pag .headerFake .perfil .perfil-options button {
-  background: none;
-  border: none;
 }
 
 #gruposBody .grupos-pag .headerFake .perfil .cerrado {

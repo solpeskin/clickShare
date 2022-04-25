@@ -27,13 +27,13 @@
 
     a {
         text-decoration: none;
-        
-        button {
-            @include tamaño (180px, 50px);
-            @include boton ($azul, white);
-            transition: all 0.3s ease;
+    }
 
-        }
+    button {
+        @include tamaño (180px, 50px);
+        @include boton ($azul, white);
+        transition: all 0.3s ease;
+        margin-right: 20px;
     }
 
     
