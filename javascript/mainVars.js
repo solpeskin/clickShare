@@ -5,9 +5,6 @@ function sesionAbierta (){
         window.location.assign("src/paginas/grupos.html")
     }
 
-    else {
-        window.location.assign("https://solpeskin.github.io/Click-Share/src/paginas/iniciar-sesion.html")
-    }
 }
 
 // btn atras 
