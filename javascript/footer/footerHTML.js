@@ -1,8 +1,8 @@
 function footer (link){
     let footer = document.querySelector ("footer");
     footer.innerHTML = 
-        `<div class="nosotros">
-            <h6>Click&Share</h6>
+        `<div class="nosotros" >
+            <h6 >Click&Share</h6>
             <p>La función de Click&Share es facilitar compartir fotos y videos de tus viajes y momentos únicos con tu grupo, de forma rápida y organizada.
                 En vez de perder tiempo y calidad eligiendo las fotos que tienes que compartir,
                 puedes hacerlo de forma automática.</p>

@@ -1,0 +1,167 @@
+// 1: pagina
+// 2: hover
+// 3: letra
+
+// background-color: rgb(44, 42, 53) ;
+// rgb(99, 99, 99),
+// white;
+
+.light {
+    transition: all 1s;
+
+    header {
+        background-color: $azul;
+
+        .lightmode {
+            .sol {
+                display: none;
+            }
+        }
+    }
+
+    .grupos-pag {
+        background-color: #f3eeff ;
+
+        .grupos p, .nombreUsuario{
+            color: rgb(36, 36, 36);
+        }
+
+        .buscadorG {
+            input {
+                background-color: rgb(255,255, 255);
+            }
+
+            button{
+                background-color: $azul;
+
+                &:hover {
+                    background-color: $azulOscuro;
+                }
+            }
+        }
+    }
+}
+
+.dark {
+    transition: all 1s;
+
+    header{
+        background-color: $azulOscuro;
+
+        .lightmode {
+            .luna {
+                display: none;
+            }
+        }
+    }
+
+    .grupos-pag {
+        background-color: #201f23 ;
+
+        .grupos p, .nombreUsuario{
+            color: white;
+        }
+
+        .buscadorG {
+            input {
+                background-color: rgb(24,24,24);
+            }
+
+            button{
+                background-color: $azulOscuro;
+
+                &:hover {
+                    background-color: $azul;
+                }
+            }
+        }
+    }
+}
+
+#gruposBody {
+
+    header {
+        position: fixed;
+        @include flex (column, space-between);
+        height: 100vh;
+        color: white;
+        padding: 20px;
+        
+        h2 {
+            text-align: center;
+            font-size: 25px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            padding: 0px ;
+
+            li {
+                margin: 30px 0;
+                list-style: none;
+                font-weight: 500;
+
+                &:hover {
+                    color: rgba(220, 202, 255, 0.493);
+                }
+            }
+        }
+
+        .crearGrupo {
+            margin-top: auto;
+            display: inline;
+            transition: all 0.2s ease;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    .grupos-pag {
+        @include tamaño (100%, 100vh);
+
+        .headerFake {
+            @include flex (row, auto);
+            padding: 50px;
+
+            .perfil {
+                margin-left: auto;
+                @include flex (row, auto);
+                align-items: center;
+
+                .nombreUsuario {
+                    margin-right: 30px;
+                    font-weight: 400;
+                }                
+            }
+
+            .buscadorG {
+                margin: 0 auto;
+                input {
+                    padding: 0 10px;
+                    border: none;
+                    outline: none;
+                    @include tamaño (300px, 40px)
+                }
+
+                button {
+                    border: none;
+                    @include tamaño (40px, 40px);
+                }
+            }
+        }
+
+        .grupos {
+            .aviso {
+                text-align: center;
+                margin-left: 190px;
+                font-weight: 500;
+            }
+        }
+
+
+    }
+
+}

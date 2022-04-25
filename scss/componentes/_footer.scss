@@ -1,6 +1,6 @@
 footer {
     width: 100%;
-    padding: 50px ;
+    padding: 50px 20px;
     background-color: $rosaOscuro;
     @include flex (row, space-evenly);
 
@@ -174,11 +174,12 @@ footer {
     }
 }
 
-@media screen and (max-width: 400px){
+@media screen and (max-width: 360px){
     footer {
         .pagsTexts {
-            flex-direction: column;
-            justify-content: center;
+            display: inline;
+            text-align: center;
+            margin: 0 auto;
         }
     }
 }

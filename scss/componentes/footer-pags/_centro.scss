@@ -38,8 +38,9 @@
         }   
     }
 
+
     .preguntas-destacadas {
-        padding: 50px 0 10vh 0;
+        padding: 50px 0 120px 0;
         
         h5 {
             font-family: 'Raleway', sans-serif;
@@ -68,10 +69,15 @@
                         margin-bottom: 10px;
                         line-height: 25px;
                         font-weight: 400;
+                        transition: all 0.5s;
                     }
 
                     &:hover {
                         height: 200px;
+
+                        .que {
+                            color: $rosaOscuro
+                        }
 
                         .ans {
                             animation-name: animacion-ans;

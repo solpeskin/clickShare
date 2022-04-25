@@ -34,21 +34,26 @@
     <script defer src="../../../javascript/centro-de-ayuda/funciones.js"></script>
     <script defer src="../../../javascript/centro-de-ayuda/main.js"></script>
 
+    <!-- footer  -->
     <script defer src="../../../javascript/footer/footerHTML.js"></script>
     <script defer src="../../../javascript/footer/footer.js"></script>
     
+    <!-- header  -->
     <script defer src="../../../javascript/header/headerHTML.js"></script>
     <script defer src="../../../javascript/header/headerScroll.js"></script>
+
+    <!-- animaciones  -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 </head>
 
 <body id="Pfooter" class="centro-ayuda">
     <header class="header1"></header>
-    <section class="busqueda">
-        <h4>  ¡HOLA! ¿CÓMO PODRÍAMOS AYUDARTE?</h4>
+    <section class="busqueda" >
+        <h4 data-aos="fade-up" data-aos-duration="1000">  ¡HOLA! ¿CÓMO PODRÍAMOS AYUDARTE?</h4>
         <div class="buscar">
-            <input type="text" placeholder="Escriba su pregunta" id="pregunta">
-            <button type="submit" id="buscador" aria-label="buscar">
+            <input type="text" placeholder="Escriba su pregunta" id="pregunta" data-aos="fade-up" data-aos-duration="1500">
+            <button type="submit" id="buscador" aria-label="buscar" data-aos="fade-up" data-aos-duration="1500">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"  class="bi bi-search" viewBox="0 0 16 16">
                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
                 </svg>
@@ -59,7 +64,7 @@
         <div></div>
     </section>
 
-    <section class="preguntas-destacadas ">
+    <section class="preguntas-destacadas " data-aos="fade-up" data-aos-duration="1000">
        <h5>Preguntas destacadas</h5>
 
        <div class="todas-pregs">
@@ -90,6 +95,10 @@
     </section>
     
     <footer></footer>
+
+    <!-- instalaciones de css  -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init();</script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>

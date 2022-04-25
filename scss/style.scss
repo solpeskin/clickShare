@@ -19,14 +19,11 @@
 @import "componentes/pre-footer";
 @import "componentes/footer";
 @import "componentes/header";
+@import "componentes/pags/grupos";
+
 
 // iniciar sesión y registrarse 
 @import "componentes/pags/iniciar-sesion";
-
-// media query 
-@import "media-query/mobile";
-@import "media-query/compu";
-@import "media-query/ipad";
 
 // footer páginas 
 @import "componentes/footer-pags/centro";

@@ -325,7 +325,7 @@
 
 footer {
   width: 100%;
-  padding: 50px;
+  padding: 50px 20px;
   background-color: #E04DB0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -536,15 +536,11 @@ footer .pagsTexts .texts h5, footer .pagsTexts .redes h5 {
   }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 360px) {
   footer .pagsTexts {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    display: inline;
+    text-align: center;
+    margin: 0 auto;
   }
 }
 
@@ -768,6 +764,187 @@ footer .pagsTexts .texts h5, footer .pagsTexts .redes h5 {
   }
 }
 
+.light {
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+.light header {
+  background-color: #5902EC;
+}
+
+.light header .lightmode .sol {
+  display: none;
+}
+
+.light .grupos-pag {
+  background-color: #f3eeff;
+}
+
+.light .grupos-pag .grupos p, .light .grupos-pag .nombreUsuario {
+  color: #242424;
+}
+
+.light .grupos-pag .buscadorG input {
+  background-color: white;
+}
+
+.light .grupos-pag .buscadorG button {
+  background-color: #5902EC;
+}
+
+.light .grupos-pag .buscadorG button:hover {
+  background-color: #4500bb;
+}
+
+.dark {
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+.dark header {
+  background-color: #4500bb;
+}
+
+.dark header .lightmode .luna {
+  display: none;
+}
+
+.dark .grupos-pag {
+  background-color: #201f23;
+}
+
+.dark .grupos-pag .grupos p, .dark .grupos-pag .nombreUsuario {
+  color: white;
+}
+
+.dark .grupos-pag .buscadorG input {
+  background-color: #181818;
+}
+
+.dark .grupos-pag .buscadorG button {
+  background-color: #4500bb;
+}
+
+.dark .grupos-pag .buscadorG button:hover {
+  background-color: #5902EC;
+}
+
+#gruposBody header {
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 100vh;
+  color: white;
+  padding: 20px;
+}
+
+#gruposBody header h2 {
+  text-align: center;
+  font-size: 25px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+#gruposBody header ul {
+  padding: 0px;
+}
+
+#gruposBody header ul li {
+  margin: 30px 0;
+  list-style: none;
+  font-weight: 500;
+}
+
+#gruposBody header ul li:hover {
+  color: rgba(220, 202, 255, 0.493);
+}
+
+#gruposBody header .crearGrupo {
+  margin-top: auto;
+  display: inline;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+#gruposBody header .crearGrupo:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+#gruposBody .grupos-pag {
+  width: 100%;
+  height: 100vh;
+}
+
+#gruposBody .grupos-pag .headerFake {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: auto;
+      -ms-flex-pack: auto;
+          justify-content: auto;
+  padding: 50px;
+}
+
+#gruposBody .grupos-pag .headerFake .perfil {
+  margin-left: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: auto;
+      -ms-flex-pack: auto;
+          justify-content: auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#gruposBody .grupos-pag .headerFake .perfil .nombreUsuario {
+  margin-right: 30px;
+  font-weight: 400;
+}
+
+#gruposBody .grupos-pag .headerFake .buscadorG {
+  margin: 0 auto;
+}
+
+#gruposBody .grupos-pag .headerFake .buscadorG input {
+  padding: 0 10px;
+  border: none;
+  outline: none;
+  width: 300px;
+  height: 40px;
+}
+
+#gruposBody .grupos-pag .headerFake .buscadorG button {
+  border: none;
+  width: 40px;
+  height: 40px;
+}
+
+#gruposBody .grupos-pag .grupos .aviso {
+  text-align: center;
+  margin-left: 190px;
+  font-weight: 500;
+}
+
 .is {
   height: 100% !important;
   background-color: #FFFA4D;
@@ -893,113 +1070,6 @@ footer .pagsTexts .texts h5, footer .pagsTexts .redes h5 {
   }
 }
 
-@media screen and (max-width: 500px) {
-  .body-tuto .header-tuto {
-    width: 100%;
-    height: 80px !important;
-  }
-  .body-tuto .header-tuto ul {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal !important;
-    -webkit-box-direction: normal !important;
-        -ms-flex-direction: row !important;
-            flex-direction: row !important;
-    -ms-flex-pack: distribute !important;
-        justify-content: space-around !important;
-    position: relative;
-    bottom: 40px;
-  }
-  .body-tuto .texto-explicacion {
-    max-width: 100%;
-  }
-  .body-tuto .texto-explicacion h5, .body-tuto .texto-explicacion p {
-    font-size: 12px;
-    margin-right: 0px !important;
-    padding: 0 50px;
-  }
-}
-
-@media screen and (max-width: 500px) and (max-width: 310px) {
-  .body-tuto .videos {
-    -webkit-transform: scale(0.7);
-            transform: scale(0.7);
-  }
-}
-
-@media screen and (min-width: 961px) {
-  .body-tuto .tutoriales .texto-explicacion {
-    margin: 100px 90px;
-  }
-}
-
-@media screen and (min-width: 500px) and (max-width: 961px) {
-  .centro-ayuda .busqueda div input {
-    width: 300px;
-    margin: auto;
-  }
-  .centro-ayuda .preguntas-destacadas .todas-pregs div {
-    margin: auto;
-  }
-  .centro-ayuda .preguntas-destacadas .todas-pregs div .contenedores {
-    width: 400px !important;
-  }
-}
-
-@media screen and (max-width: 961px) {
-  .body-tuto .inicio-t {
-    background-attachment: scroll !important;
-    background-size: 100%;
-  }
-  .body-tuto .inicio-t .img-t {
-    max-width: 300%;
-    padding-left: 20px !important;
-  }
-  .body-tuto .inicio-t .img-t h5, .body-tuto .inicio-t .img-t p {
-    -webkit-transform: scale(0.7);
-            transform: scale(0.7);
-  }
-  .body-tuto .tutoriales .texto-explicacion {
-    font-size: 15px;
-    margin: 50px 30px;
-  }
-  .body-tuto .tutoriales .texto-explicacion p, .body-tuto .tutoriales .texto-explicacion h5 {
-    margin-right: 50px;
-  }
-}
-
-@media screen and (max-width: 961px) and (min-width: 640px) {
-  .body-tuto .tutoriales .texto-explicacion {
-    width: 190px !important;
-  }
-}
-
-@media screen and (max-width: 961px) and (max-width: 640px) {
-  .body-tuto .tutoriales {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical !important;
-    -webkit-box-direction: reverse !important;
-        -ms-flex-direction: column-reverse !important;
-            flex-direction: column-reverse !important;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    text-align: center;
-  }
-  .body-tuto .tutoriales .texto-explicacion, .body-tuto .tutoriales .videos {
-    margin: 30px auto !important;
-  }
-}
-
-@media screen and (max-width: 470px) {
-  .politica-priv {
-    width: 300px !important;
-  }
-}
-
 .centro-ayuda {
   background-color: #f3eeff;
 }
@@ -1046,7 +1116,7 @@ footer .pagsTexts .texts h5, footer .pagsTexts .redes h5 {
 }
 
 .centro-ayuda .preguntas-destacadas {
-  padding: 50px 0 10vh 0;
+  padding: 50px 0 120px 0;
 }
 
 .centro-ayuda .preguntas-destacadas h5 {
@@ -1100,10 +1170,16 @@ footer .pagsTexts .texts h5, footer .pagsTexts .redes h5 {
   margin-bottom: 10px;
   line-height: 25px;
   font-weight: 400;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 .centro-ayuda .preguntas-destacadas .todas-pregs .preguntas div:hover {
   height: 200px;
+}
+
+.centro-ayuda .preguntas-destacadas .todas-pregs .preguntas div:hover .que {
+  color: #E04DB0;
 }
 
 .centro-ayuda .preguntas-destacadas .todas-pregs .preguntas div:hover .ans {
@@ -1191,152 +1267,6 @@ footer .pagsTexts .texts h5, footer .pagsTexts .redes h5 {
   }
 }
 
-.body-tuto .inicio-t {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: start;
-  background-color: white;
-  background-attachment: fixed;
-  height: 100vh;
-}
-
-.body-tuto .inicio-t .img-t {
-  padding: 150px 10px 150px 100px;
-  color: #2c2c2c;
-}
-
-.body-tuto .inicio-t .img-t h5 {
-  font-size: 50px;
-  margin-bottom: 20px;
-}
-
-.body-tuto .inicio-t .img-t p {
-  font-size: 40px;
-  word-wrap: break-word;
-}
-
-.body-tuto .header-tuto {
-  position: fixed;
-  height: 100%;
-  right: 0px;
-  border: black solid 1px;
-  -webkit-box-shadow: -10px 10px 50px rgba(124, 213, 255, 0.719);
-          box-shadow: -10px 10px 50px rgba(124, 213, 255, 0.719);
-}
-
-.body-tuto .header-tuto ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  padding: 0px;
-}
-
-.body-tuto .header-tuto ul li {
-  list-style: none;
-  margin: 50px 0px;
-  cursor: pointer;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-}
-
-.body-tuto .header-tuto ul li:hover {
-  -webkit-transform: scale(1.3);
-          transform: scale(1.3);
-}
-
-.body-tuto .tutoriales {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  background-color: white;
-}
-
-.body-tuto .tutoriales .videos {
-  margin: 100px 0 80px 0;
-  background-color: rgba(124, 124, 124, 0.336);
-  position: absolute;
-  border-radius: 50px;
-  border: black solid 1px;
-  -webkit-box-shadow: -10px 10px 50px rgba(255, 4, 130, 0.377);
-          box-shadow: -10px 10px 50px rgba(255, 4, 130, 0.377);
-  width: 300px;
-  height: 600px;
-}
-
-.body-tuto .tutoriales .videos p {
-  text-align: center;
-  padding-top: 100px;
-}
-
-.body-tuto .tutoriales .texto-explicacion {
-  width: 400px;
-}
-
-.body-tuto .tutoriales .texto-explicacion h5 {
-  color: #333333;
-  font-size: 40px;
-  margin: 60px 0;
-}
-
-.body-tuto .tutoriales .texto-explicacion p {
-  word-wrap: break-word;
-  line-height: 25px;
-}
-
-.body-tuto #invitar {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: reverse;
-      -ms-flex-direction: row-reverse;
-          flex-direction: row-reverse;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.body-tuto #invitar .texto-explicacion {
-  margin-left: 0;
-}
-
-.privBody {
-  background-color: #350a85;
-}
-
-.privBody header {
-  background-color: #E04DB0;
-}
-
-.privBody footer {
-  background-color: #4e4e4e;
-}
-
-.privBody footer .mandar {
-  color: #4e4e4e !important;
-}
-
 .privBody .politica-priv {
   width: 500px;
   font-size: 20px;
@@ -1345,7 +1275,7 @@ footer .pagsTexts .texts h5, footer .pagsTexts .redes h5 {
 
 .privBody .politica-priv h2 {
   font-weight: 900;
-  color: #5902EC;
+  color: #00bb8c;
   font-size: 50px;
   margin-bottom: 30px;
 }
@@ -1359,7 +1289,7 @@ footer .pagsTexts .texts h5, footer .pagsTexts .redes h5 {
 
 .privBody .politica-priv p span {
   font-size: 35px;
-  color: #5902EC;
+  color: #00bb8c;
 }
 
 @media screen and (max-width: 470px) {
@@ -1369,5 +1299,186 @@ footer .pagsTexts .texts h5, footer .pagsTexts .redes h5 {
   .politica-priv h2 {
     font-size: 30px;
   }
+}
+
+.light {
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+.light header {
+  background-color: #5902EC;
+}
+
+.light header .lightmode .sol {
+  display: none;
+}
+
+.light .grupos-pag {
+  background-color: #f3eeff;
+}
+
+.light .grupos-pag .grupos p, .light .grupos-pag .nombreUsuario {
+  color: #242424;
+}
+
+.light .grupos-pag .buscadorG input {
+  background-color: white;
+}
+
+.light .grupos-pag .buscadorG button {
+  background-color: #5902EC;
+}
+
+.light .grupos-pag .buscadorG button:hover {
+  background-color: #4500bb;
+}
+
+.dark {
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+.dark header {
+  background-color: #4500bb;
+}
+
+.dark header .lightmode .luna {
+  display: none;
+}
+
+.dark .grupos-pag {
+  background-color: #201f23;
+}
+
+.dark .grupos-pag .grupos p, .dark .grupos-pag .nombreUsuario {
+  color: white;
+}
+
+.dark .grupos-pag .buscadorG input {
+  background-color: #181818;
+}
+
+.dark .grupos-pag .buscadorG button {
+  background-color: #4500bb;
+}
+
+.dark .grupos-pag .buscadorG button:hover {
+  background-color: #5902EC;
+}
+
+#gruposBody header {
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 100vh;
+  color: white;
+  padding: 20px;
+}
+
+#gruposBody header h2 {
+  text-align: center;
+  font-size: 25px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+#gruposBody header ul {
+  padding: 0px;
+}
+
+#gruposBody header ul li {
+  margin: 30px 0;
+  list-style: none;
+  font-weight: 500;
+}
+
+#gruposBody header ul li:hover {
+  color: rgba(220, 202, 255, 0.493);
+}
+
+#gruposBody header .crearGrupo {
+  margin-top: auto;
+  display: inline;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+#gruposBody header .crearGrupo:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+#gruposBody .grupos-pag {
+  width: 100%;
+  height: 100vh;
+}
+
+#gruposBody .grupos-pag .headerFake {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: auto;
+      -ms-flex-pack: auto;
+          justify-content: auto;
+  padding: 50px;
+}
+
+#gruposBody .grupos-pag .headerFake .perfil {
+  margin-left: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: auto;
+      -ms-flex-pack: auto;
+          justify-content: auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#gruposBody .grupos-pag .headerFake .perfil .nombreUsuario {
+  margin-right: 30px;
+  font-weight: 400;
+}
+
+#gruposBody .grupos-pag .headerFake .buscadorG {
+  margin: 0 auto;
+}
+
+#gruposBody .grupos-pag .headerFake .buscadorG input {
+  padding: 0 10px;
+  border: none;
+  outline: none;
+  width: 300px;
+  height: 40px;
+}
+
+#gruposBody .grupos-pag .headerFake .buscadorG button {
+  border: none;
+  width: 40px;
+  height: 40px;
+}
+
+#gruposBody .grupos-pag .grupos .aviso {
+  text-align: center;
+  margin-left: 190px;
+  font-weight: 500;
 }
 /*# sourceMappingURL=style.css.map */

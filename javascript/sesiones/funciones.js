@@ -63,11 +63,10 @@ function contraLogIn (userFound, textoErrorContra){
 
     // inicio de sesion exitoso 
     else if (userFound?.contraseña === contra.value){
-        console.log ("ingreso exitoso")
         submitNoError(textoErrorContra)
         currentUser = userFound;
-
         localStorage.setItem("currentUser", JSON.stringify(currentUser));
+        window.location.assign("grupos.html")
     }
 
     else {
