@@ -1,36 +1,11 @@
 // funciones
 // examinar datos registro
+
 function examinarDatos (){
-    datoUsuario()
     datoMail()
+    datoUsuario()
     datoContra()
     confirmarContra()
-}
-
-// examinar datos del usuario
-function datoUsuario(){
-    let textoErrorUser = username.parentElement.querySelector(".submitError");
-    submitNoError(textoErrorUser);
-
-    // si es mas grande que 15
-    if (username.value.length >15 || username.value.length <4) {
-        submitError(textoErrorUser, "Tu nombre de usuario debe ser de entre 4 y 15 caracteres.")
-        Cuser = 0;
-    }
-
-    else if (searchUser()){
-        submitError(textoErrorUser, "Nombre de usuario no disponible.")
-        Cuser = 0;
-    }
-
-    else {
-        Cuser=1;
-    }
-
-    // si esta vacío
-    if (!username.value){
-        submitError(textoErrorUser, "Ingrese un nombre de usuario.");  
-    }
 }
 
 // examinar datos mail
@@ -41,16 +16,43 @@ function datoMail(){
     // si esta vacío
     if (!mail.value){
         submitError(textoErrorMail, "Ingrese un correo electrónico.");
-        Cmail = 0;
     } 
 
+    // si ya fue utilizado 
     else if (searchMail()){
         submitError(textoErrorMail, "El mail ingresado ya fue utilizado.")
     }
 
+
     else {
-        Cmail = 1;
+        return mail.value;
     }
+}
+
+// examinar datos del usuario
+function datoUsuario(){
+    let textoErrorUser = username.parentElement.querySelector(".submitError");
+    submitNoError(textoErrorUser);
+
+    // si es mas grande que 15
+    if (username.value.length >15 || username.value.length <4) {
+        submitError(textoErrorUser, "Tu nombre de usuario debe ser de entre 4 y 15 caracteres.")
+    }
+
+    // si ya existe
+    else if (searchUser()){
+        submitError(textoErrorUser, "Nombre de usuario no disponible.")
+    }
+
+    // si esta vacío
+    else if (!username.value){
+        submitError(textoErrorUser, "Ingrese un nombre de usuario.");  
+    }
+
+    else {
+        return username.value;
+    }
+
 }
 
 // examinar datos contraseña
@@ -63,13 +65,13 @@ function datoContra(){
         submitError(textoErrorContra, "Tu contraseña debe ser de al menos 6 caracteres.");
     }
 
-    else {
-        Ccontra = 1;
-    }
-
     // si esta vacío
     if (!contra.value){
         submitError(textoErrorContra, "Ingrese una contraseña.");  
+    }
+
+    else {
+        return contra.value
     }
 }
 
@@ -78,18 +80,30 @@ function confirmarContra(){
     let textoErrorConfirmacion = confirmacion.parentElement.querySelector(".submitError");
     submitNoError(textoErrorConfirmacion);
 
-    // si no son iguales 
-    if (confirmacion.value !== contra.value){
-        submitError(textoErrorConfirmacion, "La contraseña no coincide.");
-        Cconfirmacion = 0;
-    }  
-
-    else {
-        Cconfirmacion = 1;
-    }
-
     // si esta vacío
     if (!confirmacion.value){
         submitError(textoErrorConfirmacion, "Debe confirmar su contraseña.");  
     }
+
+    // si no son iguales 
+    if (confirmacion.value !== contra.value){
+        submitError(textoErrorConfirmacion, "La contraseña no coincide.");
+    }  
+
+    else {
+        return confirmacion.value
+    }
+
 }    
+
+// al hacer cliick registrar
+function registrar(event){
+    event.preventDefault();
+    examinarDatos();
+    crearUser();
+
+    // al escribir algo ...
+    inputs.forEach((e)=> {
+        e.addEventListener("input", ()=> examinarDatos());
+    })
+};

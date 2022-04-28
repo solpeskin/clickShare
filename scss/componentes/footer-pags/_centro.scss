@@ -1,16 +1,16 @@
 .centro-ayuda {
-    background-color: rgb(243, 238, 255);
+    background-color: $negro;
 
     .busqueda {
-        background-color: $amarillo;
+        background-image: url("../src/fotos/fondo-centro.svg");
+        background-size: cover;
         @include espacios (30px 30px, 130px 0);
         border-radius: 10px;
         @include tamaño (auto + 200px , auto + 50px);
 
         h4 {
-            color: $azul;
+            color: $negro;
             font-weight: 900;
-            text-shadow: 5px 5px $rosaClaro;
             font-size: 40px;
             text-align: center;
         }
@@ -21,18 +21,21 @@
             input {
                 @include tamaño (500px,40px);
                 @include espacios (50px 0px, 0 10px);
-                border: none;
+                border: 1px solid black ;
+                background: none;
+                outline: $negro;
             } 
 
             button {
+                background: none;
                 width: 40px;
-                background-color:$azul;
                 height: 40px;
                 border: none;
-                fill: white;
+                fill: $negro;
+                transition: all 0.5s ease;
 
                 &:hover {
-                    background-color: rgb(59, 22, 145);
+                    transform: translateX(5px) ;
                 }
             }
         }   
@@ -45,7 +48,7 @@
         h5 {
             font-family: 'Raleway', sans-serif;
             text-align: center;
-            color: $azul;
+            color: $rosaOscuro;
             font-weight: 700;
             margin: 30px 0;
             font-size: 50px
@@ -56,7 +59,7 @@
 
             .preguntas {
                 @include flex (column, initial);
-
+                
                 div {
                     background-color: white;
                     border-radius: 20px;
@@ -74,10 +77,6 @@
 
                     &:hover {
                         height: 200px;
-
-                        .que {
-                            color: $rosaOscuro
-                        }
 
                         .ans {
                             animation-name: animacion-ans;

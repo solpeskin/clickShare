@@ -1,12 +1,12 @@
 
 .is {
     height: 100% !important;
-    background-color: $amarillo;
+    background-color: rgb(254, 253, 255);
     text-align: center;
 
     svg {
         margin-top: 20px;
-        fill: $azul;
+        fill: $negro;
         transition: all 0.3s;
 
         &:hover {
@@ -15,14 +15,15 @@
     }
 
     .conteinerCompu {
-        margin: 20px auto;
+        margin:70px auto;
         text-align: center;
 
 
         h1 {
+            font-family: 'Raleway', sans-serif;
             display: inline;
-            color: $azul;
-            text-shadow: 10px 10px $rosaClaro;
+            color: $negro;
+            // text-shadow: 10px 10px $rosaClaro;
             font-size: 80px;
             font-weight: 900;
             word-wrap: break-word;
@@ -44,8 +45,15 @@
             input {
                 @include tamaño (500px, 50px);
                 border:none;
-                outline: $amarillo;
+                border-bottom: 1px solid rgb(206, 206, 206);
                 padding-left: 10px;
+                background: none;
+                outline: none;
+                transition: all 0.4s ease;
+
+                &:focus {
+                    border-bottom: 2.5px solid $azul;
+                }
             }
 
             .boton {

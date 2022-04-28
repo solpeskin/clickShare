@@ -1,5 +1,5 @@
 #ustedes {
-    background-color: $azul;
+    background-color: $amarillo;
     text-align: end;
     padding: 80px;
     height: auto;
@@ -8,11 +8,11 @@
     h2 {
         display: inline-block;
         width: 500px;
-        line-height: 150px;
+        line-height: 180px;
         word-wrap: break-word;
         
-        -webkit-text-fill-color: $azul;
-        -webkit-text-stroke-color: $rosaClaro;
+        -webkit-text-fill-color: $amarillo;
+        -webkit-text-stroke-color: $negro;
         -webkit-text-stroke-width: 3px;
 
         font-family: 'Work Sans', sans-serif;
@@ -30,6 +30,7 @@
         div {
             background-color: white;
             border-radius: 15px;
+            color: $negro;
 
             @media screen and (min-width: 662px){
                 @include tamaño (500px, 250px );
@@ -38,6 +39,7 @@
             @include espacios (0 150px 30px 40px, 40px);
 
             .comillas {
+                
                 font-size: 50px;
                 font-weight: 700;
             }

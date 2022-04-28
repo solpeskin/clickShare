@@ -2,12 +2,14 @@
 
 // variables 
 $size: 10px;
-$amarillo: #FFFA4D;
-$rosaClaro: #F2C9E1;
+$amarillo: #FDCD49;
+$rosaClaro: #fcbdbd;
 $rosaOscuro: #E04DB0;
 $rosaOscuro2:rgb(165, 46, 125);
-$azul: #5902EC;
+$azul: #1c57d3;
 $azulOscuro:#4500bb;
+$negro: #000f33;
+$blanco: white;
 
 // mixins 
 @mixin tamaño ($num, $num2) {

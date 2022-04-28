@@ -22,7 +22,7 @@ function descargar (){
             clearInterval(interval)
           }
         }).then((result) => {
-
+            
           if (result.dismiss === Swal.DismissReason.timer) {
             Swal.fire('Descarga exitosa!', '', 'success')
         }

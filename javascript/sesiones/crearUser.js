@@ -1,13 +1,15 @@
 // si esta todo onkeydown, crear user
 function crearUser (){
-    if (Cuser + Cmail + Ccontra + Cconfirmacion === 4 ){
-        let usuario = new user (mail.value, username.value, contra.value, generarId());
-        document.querySelector(".registrarSubmit").href = "iniciar-sesion.html";
+    if (datoUsuario() && datoMail() && datoContra() && confirmarContra()){
+        inputs.forEach((e)=> e.toggleAttribute("disabled"))
 
-        usuarios.push(usuario);
-        localStorage.setItem("usuarios", JSON.stringify(usuarios));
+        setTimeout(()=>{
+            let usuario = new user (datoMail(), datoUsuario(), datoContra(), generarId());
+            usuarios.push(usuario)
+            localStorage.setItem("usuarios", JSON.stringify(usuarios));
 
-        window.location.assign ("iniciar-sesion.html");
+            window.location.assign("iniciar-sesion.html")
+        }, 1500)
     }
 }
 

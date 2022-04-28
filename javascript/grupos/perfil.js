@@ -32,7 +32,10 @@ fotoPerfil.addEventListener ("click", ()=>{
     }
 }) 
 
-cerrarSesionBtn.addEventListener ("click ", console.log("hola"))
+cerrarSesionBtn.addEventListener ("click", ()=>{
+    localStorage.removeItem("currentUser")
+    window.location.assign("../../index.html")
+})
 
 if (!currentUser){
     window.location.assign("../../index.html")

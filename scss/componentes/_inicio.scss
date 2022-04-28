@@ -1,26 +1,26 @@
 
-#inicio, #pre-footer {
-    height: 100vh;
-    padding: 4% 9%;
-
-    color: $azul;
+#inicio{
+    height: 90vh;
+    padding: 10px 40px;
+    text-align: center;
+    color: $negro;
 
     /*fondo*/
-    background-color: $amarillo;;
-    background-attachment: fixed;
+    background-image: url("../src/fotos/fondo-divertido.svg");
+    background-size: cover;
 
     /*textos*/
-    h1,h2 {
-        width: 350px;
+    h1 {
+        margin: 100px auto 0 auto;
+        width: 400px;
         font-size: 100px;
         font-weight: 800;
         word-wrap: break-word;
 
-        text-shadow: 10px 10px $rosaClaro ;
+        // text-shadow: 10px 10px $rosaClaro ;
     }
 
     h4 {
-        background-color: $amarillo;
         font-size: $size *1.7; 
         margin-bottom: 30px;
     }
@@ -33,7 +33,7 @@
         @include tamaño (180px, 50px);
         @include boton ($azul, white);
         transition: all 0.3s ease;
-        margin-right: 20px;
+        margin: 0 10px;
     }
 
     

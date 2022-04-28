@@ -1,16 +1,28 @@
 #pre-footer {
     text-align: center;
-    padding: 250px 0px;
 
     @include flex (column, center);
         
     h2 {
-        width: auto;
+        margin: 100px auto 0 auto;
+        font-size: 100px;
+        font-weight: 800;
+        color: $negro;
     }
 
     h2, button {
         margin: 0 auto;
         display: inline;
+    }
+
+    a {
+        text-decoration: none
+    }
+
+    button {
+        @include tamaño (180px, 40px);
+        transition: all 0.2s ease-in-out;
+        @include boton ($negro, white);
     }
 
     @media screen and (max-width: 540px){

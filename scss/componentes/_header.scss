@@ -11,7 +11,8 @@
 .header1 {
     transition: transform 0.4s;  
     padding:  20px 20px ; 
-    background-color: $azul;
+    background-color: $blanco;
+    border-bottom: 1px solid $negro;
     @include sticky (0%); 
     z-index: 4;
     
@@ -22,13 +23,9 @@
             @include flex (row, space-between);
             align-items: center;
 
-            a {
-                color: white;
-            }
-
             .menu-paginas {
                 .clickshare {
-                    color: white;
+                    color: $negro;
                     font-weight: 700;
                     font-size: 30px;
                     margin-right: 30px;
@@ -48,6 +45,7 @@
 
                         a {
                             text-decoration: none;
+                            color: $negro;
                         }
                     }
 
@@ -70,7 +68,7 @@
 @media screen and (min-width: 961px) {
     header {
         .menu-mobile {
-            .list-mobile {
+            .list-mobile, .cancel {
                 display: none;
             }
 
@@ -84,32 +82,17 @@
                     @include tamaño (140px, $size *4.5);
                     margin: $size *0.2;
 
+                    background:none;
+                    border: 0.4px solid white;
+                    transition: all 0.3s ease;
+
+                    @include boton ($azul, $blanco);
+
                     a {
                         text-decoration: none;
                     }
                 
                     border-radius: 4px;
-                }
-
-                .iniciar-sesion, .registrarse {
-                    background:none;
-                    border: 0.4px solid white;
-                    transition: all 0.3s ease;
-
-                    a {
-                        color: white;
-                    }
-
-
-                    &:hover {
-                        border: none;
-                        background-color: white;
-
-                        a {
-                            color: $azul;
-                        }
-                    }
-
                 }
             }
         }
@@ -119,61 +102,85 @@
 // media query 
 // menu para el responsive en ipad y mobile 
 @media screen and (max-width: 961px){
+
     .header1 {
-        .menu-mobile {
+
+        .menu-mobile svg:hover {
+            fill: rgb(119, 119, 119);
+        }
+
+        .submenuOff {
             display: inline-flex;
             flex-direction: column;
 
+            svg {
+                animation-name: opacidad;
+                animation-duration: 0.1s;
+
+                fill: $negro;
+                opacity: 100%;
+            }
+
+            .cancel {
+                display: none;
+                opacity: 0%;
+            }
+
             .allMenu {
-                background-color: $azul;
-                width: 100px;
+                z-index: 0;
+                top: 50px;
+                width: 0%;
                 opacity: 0%;
                 transition: all 0.7s ease;
-
-                .clickshare {
-                    display: none;
-                }
 
                 div {
                     display: none;
                 }
             }
+        }
 
-            .botonHeader:active .allMenu {
+        .submenuOn {
+            animation-name: opacidad;
+            animation-duration: 0.3s;
+
+            .list-mobile {
                 display: none;
+                opacity: 0%;
+            }
+            .cancel {
+                display: inline;
+                opacity: 100%;
             }
 
-            &:hover .allMenu{
+            .allMenu{
+                background-color: rgb(255, 255, 255);
                 opacity: 100%;
                 left: 0px;
                 position: absolute;
                 @include flex (column, start);
-                @include tamaño (200px, 100vh);
+                @include tamaño (100%, 110vh);
                 padding: 10px;
+                text-align: start;
 
-
-                ul{
-                    width: 170px
+                .clickshare {
+                    display: none;
                 }
 
                 div, div ul {
-                    @include flex (column, center);
-                    align-items: center;
+                    display: flex;
+                    flex-direction: column;
 
                     li, button {
+                        font-size: 30px;
                         border: none;
-
-                        width: 200px;
-                        @include espacios (0, 30px 20px);
-
-                        display: inline-block;
                         text-align: start;
+                        margin: 15px 0;
 
                         a {
                             text-align: start;
 
                             &:hover {
-                                color: rgb(255, 115, 201);
+                                color: $azul;
                             }
 
                         }

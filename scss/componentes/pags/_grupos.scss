@@ -1,83 +1,75 @@
 
 .light {
-    transition: all 1s;
-
     header {
-        background-color: $azul;
+        background-color: white;
 
-        .lightmode {
-            .sol {
-                display: none;
+        .buscadorG {
+            input {
+                background-color: rgb(233, 233, 233);
+            }
+
+            button svg{
+                fill: #201f23;
             }
         }
     }
 
     .grupos-pag {
-        background-color: #f3eeff ;
-
-        .grupos p, .nombreUsuario{
-            color: rgb(36, 36, 36);
-        }
-
-        .buscadorG {
-            input {
-                background-color: rgb(255,255, 255);
-            }
-
-            button{
-                background-color: $azul;
+        .opcionesGrupos {
+            li {
+                a{
+                    color:#353535 ;
+                }
 
                 &:hover {
-                    background-color: $azulOscuro;
+                    background-color: #f1f1f1;
+                }
+
+            }
+
+            .lightmode {
+                .sol {
+                    display: none;
+                }
+
+                .luna {
+                    display: inline;
                 }
             }
+        }
+
+        .grupos p{
+            color: rgb(75, 75, 75);
         }
 
         .perfil {
             
-            svg {
-                fill: #201f23;
+            svg, .nombreUsuario {
+                color: rgb(36, 36, 36);
 
                 &:hover {
-                    filter:contrast(0.3);
+                    filter:opacity(90%);
                 }
+            }
+
+            svg:hover {
+                filter:contrast(0.3);
             }
         }
     }
 }
 
 .dark {
-    transition: all 1s;
-
-    header{
-        background-color: $azulOscuro;
-
-        .lightmode {
-            .luna {
-                display: none;
-            }
-        }
-    }
-
-    .grupos-pag {
-        background-color: #201f23 ;
-
-        .grupos p, .nombreUsuario{
-            color: white;
-        }
+    header {
+        border-right: 1px solid white;
+        background-color: rgb(27, 27, 27);
+        color: white;
 
         .buscadorG {
             input {
-                background-color: rgb(24,24,24);
+                background-color: #ffffff;
             }
 
-            button{
-                background-color: $azulOscuro;
-
-                &:hover {
-                    background-color: $azul;
-                }
-            }
         }
 
         .perfil { 
@@ -93,113 +85,173 @@
                 filter: drop-shadow(0px 0px 0px white);
             }
         }
+
     }
-}
 
-#gruposBody {
-    display: grid;
-    grid-template-columns: 230px auto;
+    .grupos-pag {
+        background-color: #201f23 ;
 
-    header {
-        @include flex (column, space-between);
-        height: 100vh;
-        color: white;
-        padding: 20px;
-        
-        h2 {
-            text-align: center;
-            font-size: 25px;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-
-        ul {
-            padding: 0px ;
-
+        .opcionesGrupos {
+            color: white;
+    
             li {
-                margin: 30px 0;
-                list-style: none;
-                font-weight: 500;
+                a {
+                    color: white;
+                }
 
                 &:hover {
-                    color: rgba(220, 202, 255, 0.493);
+                    background-color: rgba(128, 128, 128, 0.377);
+                }
+            }
+
+            .lightmode {
+                .luna {
+                    display: none;
                 }
             }
         }
 
-        .crearGrupo {
-            margin-top: auto;
-            display: inline;
-            transition: all 0.2s ease;
+        .grupos p{
+            color: white;
+        }
+    }
+}
 
-            &:hover {
-                transform: scale(1.1);
+#gruposBody {
+    header {
+        align-items: center;
+        padding: 10px 30px;
+        box-shadow: 0px 0px 5px rgb(158, 158, 158);
+        @include flex (row, space-around);
+
+        h2 {
+            text-align: center;
+            font-size: 25px;
+            font-weight: 700;
+            margin-bottom: 0px ;
+        }
+
+        .perfil {
+            margin-left: auto;
+            @include flex (row, auto);
+            align-items: center;
+
+            .nombreUsuario {
+                font-weight: 400;
+                margin-right: 20px;
+                margin-bottom: 0;
+            }    
+            
+            .perfil-options {
+                position: absolute;
+                top: 70px;
+                right: 20px;
+                width: 200px;
+                border-radius: 20px;
+                background-color: white;
+
+                button {
+                    width: 200px;
+                    padding: 20px;
+                    background: none;
+                    border: none;
+                    text-align: start;
+
+                    &:hover {
+                        background-color: rgb(228, 228, 228);
+                    }
+                }
+
+                #cerrarSesion {
+                    border-bottom-right-radius: 20px;
+                    border-bottom-left-radius: 20px;
+                }
+
+                #miCuenta {
+                    border-top-left-radius: 20px;
+                    border-top-right-radius: 20px;
+                }
+
+            }
+
+            .cerrado {
+                display: none;
+            }
+
+            .abierto {
+                display: inline-block;
+            }
+
+        }
+
+        .buscadorG {
+            display: flex;
+            align-items: center;
+
+            input {
+                @include espacios (0 0 0 20px, 0 10px);
+                border: none;
+                border-radius: 10px;
+                outline: none;
+                @include tamaño (300px, 30px)
+            }
+
+            button {
+                border: none;
+                @include tamaño (30px, 30px);
+
+                background: none;
+                
+                &:hover {
+                    transform: scale(1.1);
+                }
+                
             }
         }
     }
 
     .grupos-pag {
-        @include tamaño (100%, 100vh);
-
-        .headerFake {
-            @include flex (row, auto);
-            padding: 50px;
-
-            .perfil {
-                margin-left: auto;
-                @include flex (row, auto);
-                align-items: center;
-
-                .nombreUsuario {
-                    margin-right: 30px;
-                    font-weight: 400;
-                }    
-                
-                .perfil-options {
-                    position: absolute;
-                    top: 100px;
-                    right: 20px;
-                    width: 200px;
-                    padding: 20px;
-                    border-radius: 20px;
-                    background-color: white;
-
-                }
-
-                .cerrado {
-                    display: none;
-                }
-
-                .abierto {
-                    display: inline-block;
-                }
-
-            }
-
-            .buscadorG {
-                margin: 0 auto;
-                input {
-                    padding: 0 10px;
-                    border: none;
-                    outline: none;
-                    @include tamaño (300px, 40px)
-                }
-
-                button {
-                    border: none;
-                    @include tamaño (40px, 40px);
-                }
-            }
-        }
+        display: grid;
+        grid-template-columns: 200px auto;
 
         .grupos {
             .aviso {
                 text-align: center;
-                margin-left: 190px;
+                margin: 300px auto;
                 font-weight: 500;
             }
         }
 
+        .opcionesGrupos {
+            @include flex (column, space-between);
+            height: auto;
+            padding: 20px 20px;
+    
+            ul {
+                padding: 0px ;
+    
+                li {
+                    border-radius: 10px;
+                    padding: 20px;
+                    list-style: none;
+                    font-weight: 500;
+    
+                    a {
+                        text-decoration: none;
+                    }
+                }
+            }
+    
+            .crearGrupo {
+                margin: auto 0 0 20px;
+                display: inline;
+                transition: all 0.2s ease;
+    
+                &:hover {
+                    transform: scale(1.1);
+                }
+            }
+        }
 
     }
 
