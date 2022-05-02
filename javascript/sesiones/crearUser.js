@@ -3,23 +3,29 @@ function crearUser (){
     if (datoUsuario() && datoMail() && datoContra() && confirmarContra()){
         inputs.forEach((e)=> e.toggleAttribute("disabled"))
 
-        setTimeout(()=>{
-            let usuario = new user (datoMail(), datoUsuario(), datoContra(), generarId());
-            usuarios.push(usuario)
-            localStorage.setItem("usuarios", JSON.stringify(usuarios));
-
-            window.location.assign("iniciar-sesion.html")
-        }, 1500)
+        guardar()
     }
 }
 
-// generar id 
-const generarId = function uid() {
-    return (performance.now().toString(36)+Math.random().toString(36)).replace(/\./g,"");
-};
+// firebase
+// guardar usuario en firebase
+function guardar (){
+    db.collection("usuarios").doc(datoUsuario()).set({
+        nombre: datoUsuario(),
+        email: datoMail(),
+        contraseña: datoContra(),
+        grupos: [{
+            nombre: "",
+            id: "",
+            foto: ""
+        }]
+    })
 
-// buscar id 
-function buscarId (id){
-    const idEncontrado = usuarios.findIndex((user)=>user.id == id);
-    return idEncontrado;
+    .then(() => {
+        setTimeout(()=>{
+            window.location.assign("iniciar-sesion.html")
+        }, 1500)
+    })
+
 }
+

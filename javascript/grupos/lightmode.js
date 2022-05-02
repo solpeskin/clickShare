@@ -1,9 +1,3 @@
-const lightmodeBtn = document.querySelector(".lightmode");
-const bodyGrupos = document.getElementById("gruposBody")
-
-let lightmode = localStorage.getItem("lightmode") || "light";
-bodyGrupos.classList.add(lightmode)
-
 function changeMode (){
     console.log("boton apretado")
 

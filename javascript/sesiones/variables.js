@@ -7,15 +7,16 @@ const confirmacion = document.querySelector(".confirmacion");
 const btnRegistrarse = document.querySelector(".registrarSubmit");
 const inputs = document.querySelectorAll(".escribir")
 
-// lista de usuarios 
-let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+//lista de usuarios
+let usuarios = [];
 
-class user {
-    constructor(mail,username,contrasena, id){
-        this.mail = mail;
-        this.username = username;
-        this.contraseña = contrasena;
-        this.id = id;
-    }
-}
+// leer datos de firebase
+db.collection("usuarios").get()
+    .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            usuarios.push(doc.data())
+            console.log(doc.data(), usuarios)
+        });
+    });
+
 

@@ -13,18 +13,57 @@
     <link rel="stylesheet" href="../../scss/style.css">
 
     <!-- java script  -->
+    <!-- firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+    <script defer src="../../javascript/base-datos/configuracion.js"></script>
+    
     <!-- main  -->
     <script defer src="../../javascript/mainVars.js"></script>
 
+    <script defer src="./../../javascript/grupos/variables.js"></script>
     <script defer src="./../../javascript/grupos/grupos.js"></script>
     <script defer src="./../../javascript/grupos/lightmode.js"></script>
     <script defer src="./../../javascript/grupos/perfil.js"></script>
 
 </head>
-<body>
-    <section id="gruposBody" >
-        <header>
-            <h2>CLICK&SHARE</h2>
+<body id="gruposBody">
+    <header>
+        <h2>CLICK&SHARE</h2>
+        <div class="perfil">
+            <h6 class="nombreUsuario "> </h6>
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle fotoPerfil" viewBox="0 0 16 16" >
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+              </svg>
+            <div class="perfil-options shadow cerrado">
+                <button id="miCuenta">Mi cuenta</button>
+                <button id="cerrarSesion">Cerrar sesión</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="grupos-pag">
+        <div class="opcionesGrupos">
+            <ul>
+                <li><a href="">Todas las fotos</a></li>
+                <li><a href="">Favoritas</a></li>
+                <li><a href="">Configuración</a></li>
+                <li><a href="footer/centro-de-ayuda.html">Ayuda</a></li>
+                <li class="lightmode">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-lightbulb-fill sol" viewBox="0 0 16 16">
+                        <path d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13h-5a.5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm3 8.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1-.5-.5z"/>
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-lightbulb luna" viewBox="0 0 16 16">
+                        <path d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13a.5.5 0 0 1 0 1 .5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1 0-1 .5.5 0 0 1 0-1 .5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm6-5a5 5 0 0 0-3.479 8.592c.263.254.514.564.676.941L5.83 12h4.342l.632-1.467c.162-.377.413-.687.676-.941A5 5 0 0 0 8 1z"/>
+                      </svg>
+                </li>
+            </ul>
+        </div>
+
+        <div class="grupos">
             <div class="buscadorG">
                 <input type="text" placeholder='"Bariloche"' class="">
                 <button>
@@ -33,39 +72,34 @@
                         </svg>
                 </button>
             </div>
-            <div class="perfil">
-                <h6 class="nombreUsuario "> </h6>
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle fotoPerfil" viewBox="0 0 16 16">
-                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-                  </svg>
-                <div class="perfil-options shadow cerrado">
-                    <button id="miCuenta">Mi cuenta</button>
-                    <button id="cerrarSesion">Cerrar sesión</button>
+
+            <div id="allGroups">
+                <div class="nuevoGrupo" onclick="abrirAñadir()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-plus-circle-fill " viewBox="0 0 16 16">
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+                      </svg>
                 </div>
             </div>
-        </header>
-        <div class="grupos-pag">
-            <div class="opcionesGrupos">
-                <ul>
-                    <li><a href="">Todas las fotos</a></li>
-                    <li><a href="">Favoritas</a></li>
-                    <li><a href="">Configuración</a></li>
-                    <li><a href="footer/centro-de-ayuda.html">Ayuda</a></li>
-                    <li class="lightmode">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-lightbulb-fill sol" viewBox="0 0 16 16">
-                            <path d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13h-5a.5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm3 8.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1-.5-.5z"/>
-                          </svg>
-                          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-lightbulb luna" viewBox="0 0 16 16">
-                            <path d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13a.5.5 0 0 1 0 1 .5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1 0-1 .5.5 0 0 1 0-1 .5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm6-5a5 5 0 0 0-3.479 8.592c.263.254.514.564.676.941L5.83 12h4.342l.632-1.467c.162-.377.413-.687.676-.941A5 5 0 0 0 8 1z"/>
-                          </svg>
-                    </li>
-                </ul>
-                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-plus-circle-fill crearGrupo " viewBox="0 0 16 16">
-                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+        </div>
+
+        <div class="añadirGrupo">
+            <div class="contentCrearGrupo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-lg cancelGroups" viewBox="0 0 16 16" onclick="cerrarAñadir()">
+                    <path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/>
+                    <path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"/>
                   </svg>
-            </div>
-            <div class="grupos">
+                <div class="formCrearGrupo">
+                    <div class="crearGrupo">
+                        <h3>Crear grupo</h3>
+                        <input type="text" class="nombreGrupo" placeholder="Nombre:">
+                        <button id="btnCrear">Crear</button>
+                    </div>
+                    <div class="unirGrupo">
+                        <h3>Unirme a grupo</h3>
+                        <input type="text" class="idGrupo" placeholder="ID:">
+                        <button id="btnUnir">Unirme</button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

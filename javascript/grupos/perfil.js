@@ -1,35 +1,26 @@
-const fotoPerfil = document.querySelector(".fotoPerfil") 
-const nombreUsuarioTxt = document.querySelector(".nombreUsuario");
-const optionsPerfil = document.querySelector(".perfil-options")
-const cerrarSesionBtn = document.querySelector("#cerrarSesion");
-
-let perfilAbierto = false
-
-
 function perfilUsuario (){
-    nombreUsuarioTxt.innerHTML = currentUser?.username;
+    nombreUsuarioTxt.innerHTML = currentUser?.nombre;
 }
 
 function abrirPerfil (){
     optionsPerfil.classList.remove("cerrado")   
-    optionsPerfil.classList.add("abierto") 
-    perfilAbierto = true;                                           
+    optionsPerfil.classList.add("abierto")                                          
 }
 
 function cerrarPerfil (){
     optionsPerfil.classList.add("cerrado")   
-    optionsPerfil.classList.remove("abierto") 
-    perfilAbierto = false;                                           
+    optionsPerfil.classList.remove("abierto")                                          
 }
 
 fotoPerfil.addEventListener ("click", ()=>{
-    if (!perfilAbierto){
-        abrirPerfil ()
-    }
+    abrirPerfil()
+    console.log ("abrir")
 
-    else {
-        cerrarPerfil()
-    }
+    setTimeout(
+        ()=>document.addEventListener("click", ()=>{
+            cerrarPerfil()
+            console.log ("cerrar")
+        }), 2)
 }) 
 
 cerrarSesionBtn.addEventListener ("click", ()=>{

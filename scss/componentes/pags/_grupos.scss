@@ -2,16 +2,6 @@
 .light {
     header {
         background-color: white;
-
-        .buscadorG {
-            input {
-                background-color: rgb(233, 233, 233);
-            }
-
-            button svg{
-                fill: #201f23;
-            }
-        }
     }
 
     .grupos-pag {
@@ -38,8 +28,24 @@
             }
         }
 
-        .grupos p{
-            color: rgb(75, 75, 75);
+        .grupos {
+            .buscadorG {
+                input {
+                    border: 0.6px solid #a1a1a1;
+                }
+    
+                button svg{
+                    fill: #201f23;
+                }
+            }
+        
+            p{
+                color: rgb(75, 75, 75);
+            }
+
+            .nuevoGrupo {
+                background-color: #f1f1f1;
+            }
         }
 
         .perfil {
@@ -57,20 +63,35 @@
             }
         }
     }
+
+    .añadirGrupo {
+        .contentCrearGrupo{
+            background-color: white;
+
+            
+            h3 {
+                color: $negro
+            }
+
+            input {
+                background-color: white;
+                border: rgb(189, 189, 189) solid 0.5px;
+            }
+
+            button {
+                @include boton ($rosaOscuro, white);
+            }
+        }
+    }
 }
 
 .dark {
+    background-color: #201f23 ;
+
     header {
         border-right: 1px solid white;
         background-color: rgb(27, 27, 27);
         color: white;
-
-        .buscadorG {
-            input {
-                background-color: #ffffff;
-            }
-
-        }
 
         .perfil { 
             svg {
@@ -89,7 +110,6 @@
     }
 
     .grupos-pag {
-        background-color: #201f23 ;
 
         .opcionesGrupos {
             color: white;
@@ -111,8 +131,48 @@
             }
         }
 
-        .grupos p{
-            color: white;
+        .grupos {
+            
+            .nuevoGrupo {
+                background-color: rgba(128, 128, 128, 0.377)
+            }
+
+            p{
+                color: white;
+            }
+            
+            .buscadorG {
+                input {
+                    background-color:  rgb(27, 27, 27);
+                    border: 0.5px solid white;
+                    color: white;
+                }
+            
+            }
+        }
+    }
+
+    .añadirGrupo {
+        .contentCrearGrupo{
+            background-color: rgb(27, 27, 27);
+
+            h3, h6 {
+                color: white;
+            }
+
+            input {
+                background-color: #201f23;
+                border: rgb(255, 255, 255) solid 0.5px;
+                color: white;
+            }
+
+            button {
+                @include boton ($rosaOscuro,rgb(27, 27, 27) )
+            }
+
+            svg {
+                fill: white;
+            }
         }
     }
 }
@@ -128,7 +188,7 @@
             text-align: center;
             font-size: 25px;
             font-weight: 700;
-            margin-bottom: 0px ;
+            margin-bottom: 0px;
         }
 
         .perfil {
@@ -143,6 +203,7 @@
             }    
             
             .perfil-options {
+                z-index: 3;
                 position: absolute;
                 top: 70px;
                 right: 20px;
@@ -183,43 +244,83 @@
             }
 
         }
-
-        .buscadorG {
-            display: flex;
-            align-items: center;
-
-            input {
-                @include espacios (0 0 0 20px, 0 10px);
-                border: none;
-                border-radius: 10px;
-                outline: none;
-                @include tamaño (300px, 30px)
-            }
-
-            button {
-                border: none;
-                @include tamaño (30px, 30px);
-
-                background: none;
-                
-                &:hover {
-                    transform: scale(1.1);
-                }
-                
-            }
-        }
     }
 
     .grupos-pag {
         display: grid;
-        grid-template-columns: 200px auto;
+        grid-template-columns: 200px 80%;
 
         .grupos {
-            .aviso {
-                text-align: center;
-                margin: 300px auto;
-                font-weight: 500;
+            margin: 50px 100px;
+
+            .buscadorG {
+                display: flex;
+                align-items: center;
+    
+                input {
+                    padding:  0 10px;
+                    border-radius: 5px;
+                    outline: none;
+                    @include tamaño (300px, 40px)
+                }
+    
+                button {
+                    border: none;
+                    @include tamaño (30px, 30px);
+    
+                    background: none;
+                    
+                    &:hover {
+                        transform: scale(1.1);
+                    }
+                    
+                }
             }
+
+            #allGroups{
+                @include flex (row, start);
+                flex-wrap: wrap;
+
+                .grupoInfo {
+                    margin-right: 30px;
+                    
+                    h6 {
+                        margin: 10px;
+                        text-align: center;
+                    }
+                }
+
+                .nuevoGrupo{
+                    margin-right: 30px;
+                    svg {
+                        fill: $rosaOscuro;
+                        align-self: center;
+                        transition:all 0.5s ease;
+                    }
+    
+                    &:hover svg {
+                        transform: scale(0.7);    
+                    }
+                }
+
+                .grupoIMG {
+                    background-color: gray ;
+                }
+    
+                .grupoIMG, .nuevoGrupo {
+                    margin-top: 30px;
+                    @include tamaño (200px, 200px);
+                    border-radius: 30px;
+                    @include flex (row, center);
+                    transition: all 0.5s ease;
+    
+                    &:hover {
+                        box-shadow: 0px 0px 20px rgba(128, 128, 128, 0.281);
+                        transform: scale(1.05);
+                    }
+                }
+            }
+
         }
 
         .opcionesGrupos {
@@ -241,18 +342,64 @@
                     }
                 }
             }
-    
-            .crearGrupo {
-                margin: auto 0 0 20px;
-                display: inline;
-                transition: all 0.2s ease;
-    
-                &:hover {
-                    transform: scale(1.1);
-                }
-            }
         }
 
+    }
+
+    .añadirGrupo{
+        background-color: #5e5e5e48;
+        position: absolute;
+        @include tamaño (100%, 92%);
+        align-items: center;
+        display: none;
+        
+        .contentCrearGrupo{
+            display: inline-block;
+            @include tamaño (auto, 450px);
+            border-radius: 30px;
+
+            svg {
+                display: inline;
+                margin: 30px 0 0 30px;
+                transition: all 0.3s ease;
+
+                &:hover {
+                    transform: scale(1.3);
+                    filter: brightness(50%);
+                }
+
+            }
+    
+            h3 {
+                font-family: 'Raleway', sans-serif;
+                font-weight: 700;
+                font-size: 40px
+            }
+    
+            input {
+                @include tamaño (300px, 40px);
+                border-radius: 2px;
+                padding-left: 10px;
+                outline: none;
+                margin-bottom: 20px;
+            }
+    
+            button {
+                transition: all 0.3s ease;
+                @include tamaño (100px, 40px);
+            }
+
+            .formCrearGrupo {
+                padding: 60px 100px;
+            }
+    
+        }
+
+
+    }
+
+    .displayGrupos {
+        @include flex (row, center);
     }
 
 }

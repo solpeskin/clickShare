@@ -45,6 +45,8 @@ function contraLogIn (userFound, textoErrorContra){
     else if (userFound?.contraseña === contra.value){
         submitNoError(textoErrorContra)
         currentUser = userFound;
+        console.log (currentUser)
+
         localStorage.setItem("currentUser", JSON.stringify(currentUser));
     }
 

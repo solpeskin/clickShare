@@ -9,9 +9,9 @@ function submitNoError (input) {
 }
 
 function searchUser (){
-    return usuarios.find((user) => user?.username === username?.value);
+    return usuarios.find((user) => user?.nombre === username?.value);
 }
 
 function searchMail (){
-    return usuarios.find((user) => user?.mail === mail?.value);
+    return usuarios.find((user)=>user?.email === mail?.value)
 }

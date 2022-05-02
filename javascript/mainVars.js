@@ -5,4 +5,14 @@ let currentPag = document.getElementById("Pindex")? "../../index.html" : documen
 localStorage.setItem("historial", currentPag)
 
 
+class user {
+    constructor(mail,username,contrasena, grupos){
+        this.mail = mail;
+        this.username = username;
+        this.contraseña = contrasena;
+        this.grupos = grupos;
+    }
+}
+
+
 

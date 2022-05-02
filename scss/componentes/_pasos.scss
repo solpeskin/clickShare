@@ -1,13 +1,14 @@
 #pasos {
-
+    padding: 20px 0;
     background-color: $negro;
-    @include espacios (0, 50px 0);
+
     
     div {
-        @include sticky (7%);
-        padding: 60px 0;
+        @include sticky (2%);
+        padding: 20px 0;
         background-color: $negro;
         margin: 0 auto;
+        @include flex (column, center);
 
         p {
             text-align: center;
@@ -27,6 +28,18 @@
             
             span {
                 font-weight: 800;
+            }
+        }
+
+        video {
+            box-shadow: 0px 0px 50px white;
+            border-radius: 30px;
+            bottom: 0px;
+            margin: 0 auto;
+            @include tamaño (60%, auto);
+
+            source {
+                margin: 0 auto;
             }
         }
     }
