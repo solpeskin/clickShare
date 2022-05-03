@@ -5,18 +5,20 @@ const username = document.querySelector(".nombre");
 const contra = document.querySelector(".contrasena");
 const confirmacion = document.querySelector(".confirmacion");
 const btnRegistrarse = document.querySelector(".registrarSubmit");
-const inputs = document.querySelectorAll(".escribir")
-
+const inputs = document.querySelectorAll(".escribir");
+ 
+// para registrarse.js 
 //lista de usuarios
 let usuarios = [];
 
-// leer datos de firebase
-db.collection("usuarios").get()
-    .then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-            usuarios.push(doc.data())
-            console.log(doc.data(), usuarios)
-        });
-    });
+// leer datos generales de firebase
+db.collection("usuarios")
+	.get()
+	.then((querySnapshot) => {
+		querySnapshot.forEach((doc) => {
+			usuarios.push(doc.data());
+		});
+	})
+;
 
 

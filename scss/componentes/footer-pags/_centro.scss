@@ -1,15 +1,18 @@
 .centro-ayuda {
-    background-color: $negro;
+    footer {
+        background-color: $negro;
+    }
+    background-color: white;
 
     .busqueda {
-        background-image: url("../src/fotos/fondo-centro.svg");
+        background-color: $rosaOscuro;
         background-size: cover;
-        @include espacios (30px 30px, 130px 0);
+        @include espacios (30px 30px , 130px 0);
         border-radius: 10px;
         @include tamaño (auto + 200px , auto + 50px);
 
         h4 {
-            color: $negro;
+            color: white;
             font-weight: 900;
             font-size: 40px;
             text-align: center;
@@ -21,9 +24,9 @@
             input {
                 @include tamaño (500px,40px);
                 @include espacios (50px 0px, 0 10px);
-                border: 1px solid black ;
-                background: none;
-                outline: $negro;
+                border: 1px solid rgb(255, 255, 255) ;
+                background-color: white;
+                outline: white;
             } 
 
             button {
@@ -31,7 +34,7 @@
                 width: 40px;
                 height: 40px;
                 border: none;
-                fill: $negro;
+                fill: white;
                 transition: all 0.5s ease;
 
                 &:hover {
@@ -61,6 +64,7 @@
                 @include flex (column, initial);
                 
                 div {
+                    border: 1px $negro solid;
                     background-color: white;
                     border-radius: 20px;
                     @include espacios (10px, 20px);

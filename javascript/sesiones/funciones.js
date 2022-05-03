@@ -15,3 +15,9 @@ function searchUser (){
 function searchMail (){
     return usuarios.find((user)=>user?.email === mail?.value)
 }
+
+const BtnAtras = document.querySelector(".volverAtras");
+
+function volverAtras (){
+    window.location.assign (currentPag);
+}

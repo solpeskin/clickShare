@@ -7,6 +7,8 @@ const nuevoGrupo = document.querySelector(".nuevoGrupo");
 const salir = document.querySelector(".cancelGroups")
 const btnCrear = document.querySelector("#btnCrear")
 
+let userGroups = []; 
+
 class grupo { 
     constructor (name, id, foto){
         this.name = name;
@@ -14,8 +16,6 @@ class grupo {
         this.foto = foto;
     }
 }
-
-let gruposCreados = currentUser.grupos;
 
 // lightmode
 const lightmodeBtn = document.querySelector(".lightmode");
@@ -30,3 +30,6 @@ const nombreUsuarioTxt = document.querySelector(".nombreUsuario");
 const optionsPerfil = document.querySelector(".perfil-options")
 const cerrarSesionBtn = document.querySelector("#cerrarSesion");
 
+if ( !db.collection("usuarios").doc(`${currentUser.nombre}`) ){
+    window.location.assign("../index.html")
+}

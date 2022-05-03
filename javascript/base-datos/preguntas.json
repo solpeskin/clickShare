@@ -1,30 +1,41 @@
 [
     {"preguntas": {
-        "grupos": {
-            "pregunta1":{
-                "pregunta": "¿Cómo creo un grupo?",
-                "respuesta" : "Desde nuestra web o app, ve a 'crear grupos'. Elije un nombre y presione en 'crear' "
-            },
-
-            "pregunta2": {
-                "pregunta": "¿Cómo comparto un grupo?",
-                "respuesta": "Para tener un grupo, es necesario tener personas. Por eso, Click&Share te da varias opciones para eso: Puedes ir a 'añadir participantes' y agrega a todos tus amigos. La opción que recomendamos, es a través del ID. A cada grupo se le asigna un ID específico. Para unirse a un grupo, tienes la opción de unirte a través de ese ID. Ten en cuenta, que el creador del grupo deberá aceptar tu solicitud para unirte."
-            },
-
-            "pregunta3": {
-                "pregunta": "¿Cómo elimino un grupo?",
-                "respuesta": "Desde la configuración del grupo, aparecerá junto a los botones de 'denunciar grupo' y 'silenciar grupo', la opción de 'eliminar grupo'"
-            },
-
-            "pregunta4": {
-                "pregunta": "¿Cómo elimino una foto?",
-                "respuesta": "Una vez mandada la foto, los participantes tendrán acceso a ella excepto que la elimines. Para eso, tendrás que eliminarla desde 'opciones de foto'. Ten en cuenta que si un participante del grupo ya ha descargado la foto, no queda a nuestra disposición"
-            }
+        "pregunta1":{
+            "caregoria": "grupos",
+            "pregunta": "¿Cómo creo un grupo?",
+            "respuesta" : "Desde nuestra web o app, ve a 'crear grupos'. Elije un nombre y presione en 'crear' "
         },
 
-        "problemas":{
+        "pregunta2": {
+            "caregoria": "grupos",
+            "pregunta": "¿Cómo comparto un grupo?",
+            "respuesta": "Para tener un grupo, es necesario tener personas. Por eso, Click&Share te da varias opciones para eso: Puedes ir a 'añadir participantes' y agrega a todos tus amigos. La opción que recomendamos, es a través del ID. A cada grupo se le asigna un ID específico. Para unirse a un grupo, tienes la opción de unirte a través de ese ID. Ten en cuenta, que el creador del grupo deberá aceptar tu solicitud para unirte."
+        },
 
+        "pregunta3": {
+            "caregoria": "grupos",
+            "pregunta": "¿Cómo elimino un grupo?",
+            "respuesta": "Desde la configuración del grupo, aparecerá junto a los botones de 'denunciar grupo' y 'silenciar grupo', la opción de 'eliminar grupo'"
+        },
+
+        "pregunta4": {
+            "caregoria": "grupos",
+            "pregunta": "¿Cómo elimino una foto?",
+            "respuesta": "Una vez mandada la foto, los participantes tendrán acceso a ella excepto que la elimines. Para eso, tendrás que eliminarla desde 'opciones de foto'. Ten en cuenta que si un participante del grupo ya ha descargado la foto, no queda a nuestra disposición"
+        },
+
+        "pregunta5": {
+            "caregoria": "grupos",
+            "pregunta": "¿Cómo elimino a un participante?",
+            "respuesta": "Para eliminar a un participante, debés ser el creador del grupo. Si así es, ve a la configuración del grupo, participantes, eliminar y presione sobre el participante que deseas eliminar"
+        },
+
+        "pregunta6": {
+            "caregoria": "problemas",
+            "pregunta": "No se mandan las fotos correctamente",
+            "respuesta": "Si las fotos no se suben, hay dos opciones: no tienes seleccionada la opción de compartir fotos en el grupo, o Click&Share no tiene acceso a tus fotos."
         }
+
     }
 }
 

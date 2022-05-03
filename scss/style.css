@@ -1284,6 +1284,10 @@ footer .pagsTexts .texts h5, footer .pagsTexts .redes h5 {
           justify-content: center;
 }
 
+#fotoPerfil svg {
+  pointer-events: none;
+}
+
 .is {
   height: 100% !important;
   background-color: #fefdff;
@@ -1418,11 +1422,15 @@ footer .pagsTexts .texts h5, footer .pagsTexts .redes h5 {
 }
 
 .centro-ayuda {
+  background-color: white;
+}
+
+.centro-ayuda footer {
   background-color: #000f33;
 }
 
 .centro-ayuda .busqueda {
-  background-image: url("../src/fotos/fondo-centro.svg");
+  background-color: #E04DB0;
   background-size: cover;
   margin: 30px 30px;
   padding: 130px 0;
@@ -1432,7 +1440,7 @@ footer .pagsTexts .texts h5, footer .pagsTexts .redes h5 {
 }
 
 .centro-ayuda .busqueda h4 {
-  color: #000f33;
+  color: white;
   font-weight: 900;
   font-size: 40px;
   text-align: center;
@@ -1447,9 +1455,9 @@ footer .pagsTexts .texts h5, footer .pagsTexts .redes h5 {
   height: 40px;
   margin: 50px 0px;
   padding: 0 10px;
-  border: 1px solid black;
-  background: none;
-  outline: #000f33;
+  border: 1px solid white;
+  background-color: white;
+  outline: white;
 }
 
 .centro-ayuda .busqueda .buscar button {
@@ -1457,7 +1465,7 @@ footer .pagsTexts .texts h5, footer .pagsTexts .redes h5 {
   width: 40px;
   height: 40px;
   border: none;
-  fill: #000f33;
+  fill: white;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
@@ -1507,6 +1515,7 @@ footer .pagsTexts .texts h5, footer .pagsTexts .redes h5 {
 }
 
 .centro-ayuda .preguntas-destacadas .todas-pregs .preguntas div {
+  border: 1px #000f33 solid;
   background-color: white;
   border-radius: 20px;
   margin: 10px;
@@ -2132,5 +2141,9 @@ footer .pagsTexts .texts h5, footer .pagsTexts .redes h5 {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+#fotoPerfil svg {
+  pointer-events: none;
 }
 /*# sourceMappingURL=style.css.map */
