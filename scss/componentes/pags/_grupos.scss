@@ -5,7 +5,7 @@
     }
 
     .grupos-pag {
-        .opcionesGrupos {
+        .header-photo-options{
             li {
                 a{
                     color:#353535 ;
@@ -29,7 +29,7 @@
         }
 
         .grupos {
-            .buscadorG {
+            .search-groups{
                 input {
                     border: 0.6px solid #a1a1a1;
                 }
@@ -43,8 +43,16 @@
                 color: rgb(75, 75, 75);
             }
 
-            .nuevoGrupo {
+            .addNewGroup, .grupoIMG {
                 background-color: #f1f1f1;
+            }
+
+            .grupoInfo h6 {
+                color: #201f23;
+            }
+
+            .newPhoto {
+                fill: $negro;
             }
         }
 
@@ -64,7 +72,7 @@
         }
     }
 
-    .añadirGrupo {
+    .addGrupo {
         .contentCrearGrupo{
             background-color: white;
 
@@ -111,7 +119,7 @@
 
     .grupos-pag {
 
-        .opcionesGrupos {
+        .header-photo-options{
             color: white;
     
             li {
@@ -132,8 +140,12 @@
         }
 
         .grupos {
+
+            .grupoInfo h6 {
+                color: #ffffff;
+            }
             
-            .nuevoGrupo {
+            .addNewGroup, .grupoIMG {
                 background-color: rgba(128, 128, 128, 0.377)
             }
 
@@ -141,7 +153,7 @@
                 color: white;
             }
             
-            .buscadorG {
+            .search-groups {
                 input {
                     background-color:  rgb(27, 27, 27);
                     border: 0.5px solid white;
@@ -150,9 +162,19 @@
             
             }
         }
+
+        .infoGroup {
+            .settings {
+                fill: white
+            }
+
+            #nombreGrupo{
+                color: white;
+            }
+        }
     }
 
-    .añadirGrupo {
+    .addGrupo {
         .contentCrearGrupo{
             background-color: rgb(27, 27, 27);
 
@@ -195,6 +217,11 @@
             margin-left: auto;
             @include flex (row, auto);
             align-items: center;
+
+            #fotoPerfil:hover{
+                cursor: pointer;
+                filter: opacity(70%);
+            }
 
             .nombreUsuario {
                 font-weight: 400;
@@ -251,9 +278,9 @@
         grid-template-columns: 200px 80%;
 
         .grupos {
-            margin: 50px 100px;
+            margin: 50px 10px 50px 80px;
 
-            .buscadorG {
+            .search-groups{
                 display: flex;
                 align-items: center;
     
@@ -290,7 +317,7 @@
                     }
                 }
 
-                .nuevoGrupo{
+                .addNewGroup{
                     margin-right: 30px;
                     svg {
                         fill: $rosaOscuro;
@@ -304,10 +331,18 @@
                 }
 
                 .grupoIMG {
-                    background-color: gray ;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    svg {
+                        fill: rgb(190, 190, 190);
+                   }
+
                 }
     
-                .grupoIMG, .nuevoGrupo {
+                .grupoIMG, .addNewGroup{
+                    cursor: pointer;
                     margin-top: 30px;
                     @include tamaño (200px, 200px);
                     border-radius: 30px;
@@ -321,9 +356,49 @@
                 }
             }
 
+            .groupPhotos{
+                margin-top: 30px;
+                .infoGroup{
+                    margin-bottom: 5px;
+                    @include flex (row, start);
+                    align-items:center;
+
+                    h6 {
+                        margin-left: auto;
+                        font-size: 20px;
+                        font-weight: 600;
+                    }
+                }
+
+                .photos {
+                    @include flex (row, auto);
+                    flex-wrap: wrap;
+
+                    .IMG {
+                        margin: 2px;
+                        height: 200px;
+
+                        img {
+                            height: 100%;
+                            width: auto;
+                        }
+                    }
+                }
+                .newPhoto {
+                    filter: drop-shadow(0px 0px 3.5px rgb(202, 202, 202));
+                    position: fixed;
+                    bottom: 30px;
+                    right: 80px;
+                    transition: all 0.4s ease;
+    
+                    &:hover {
+                        transform: scale(1.2);
+                    }
+                }
+            }
         }
 
-        .opcionesGrupos {
+        .header-photo-options{
             @include flex (column, space-between);
             height: auto;
             padding: 20px 20px;
@@ -346,7 +421,7 @@
 
     }
 
-    .añadirGrupo{
+    .addGrupo{
         background-color: #5e5e5e48;
         position: absolute;
         @include tamaño (100%, 92%);
@@ -398,12 +473,82 @@
 
     }
 
+    .uploadPhoto-bg{
+        background-color: #5e5e5e48;
+        position: fixed;
+        @include tamaño (100%, 92%);
+        @include flex (column, center);
+        align-items: center;
+
+        .upload-img-conteiner{
+            background-color: white;
+            @include tamaño (400px, 400px);
+            border-radius: 30px;
+            @include flex (row, center);
+            align-items: center;
+
+            label {
+                @include tamaño (350px, 350px);
+
+                .label_dragover--down, &:hover div {
+                    background-color: rgb(241, 241, 241);
+                }
+
+                input {
+                    opacity: 0%;
+                    position: absolute;
+                    @include tamaño (350px, 350px);
+                }
+
+                .upload-img_button{
+                    border-radius: 30px;
+                    border: dashed 3px rgb(224, 224, 224);
+                    @include flex (row, center);
+                    align-items: center;
+                    height: 100%;
+                    overflow: hidden;
+
+                    svg {
+                        fill: rgb(224, 224, 224);
+                    }
+
+                    .previewIMG{
+                        width: 100%;
+                        height: inherit;
+                        object-fit: cover;
+
+                        &:hover {
+                            filter: brightness(-10%)
+                        }
+                    }
+                }
+            }
+
+        }
+
+        button {
+            @include tamaño (150px, 40px);
+            @include boton ($azul, white);
+            margin-top: 20px;
+            transition: all 0.2s ease;
+
+            &:active{
+                background-color: $azul;
+            }
+        }
+
+    }
+
     .displayGrupos {
         @include flex (row, center);
     }
 
 }
 
-#fotoPerfil svg {
+#fotoPerfil svg{
     pointer-events: none;
+}
+
+.displayNone {
+    display: none !important
 }

@@ -2,20 +2,25 @@
 const nombreGrupo = document.querySelector(".nombreGrupo");
 const idGrupo = document.querySelector(".idGrupo");
 const crearGrupoBtn = document.lastChild.querySelector(".crearGrupo");
-const añadirGrupo = document.querySelector(".añadirGrupo");
-const nuevoGrupo = document.querySelector(".nuevoGrupo");
+const addGrupo = document.querySelector(".addGrupo");
 const salir = document.querySelector(".cancelGroups")
 const btnCrear = document.querySelector("#btnCrear")
 
+// fotos
+const groupPhotos = document.querySelector(".groupPhotos");
+const allGroups = document.querySelector("#allGroups");
+const newPhoto = document.querySelector(".newPhoto");
+const uploadPhotoBg = document.querySelector(".uploadPhoto-bg");
+const sendPhoto = document.querySelector(".send-photo")
+const inputPhoto = document.querySelector(".photoFile")
+const dragZone = document.querySelector(".upload-img_button")
+const photosOnHTML = document.querySelector(".photos")
+
+
 let userGroups = []; 
 
-class grupo { 
-    constructor (name, id, foto){
-        this.name = name;
-        this.id = id;
-        this.foto = foto;
-    }
-}
+let groupPressed ;
+
 
 // lightmode
 const lightmodeBtn = document.querySelector(".lightmode");
@@ -33,3 +38,21 @@ const cerrarSesionBtn = document.querySelector("#cerrarSesion");
 if ( !db.collection("usuarios").doc(`${currentUser.nombre}`) ){
     window.location.assign("../index.html")
 }
+
+// get user data 
+function getUserGroups(username) {
+	db.collection("usuarios")
+		.doc(`${username}`) 
+		.get()
+		.then((res) => {
+            userGroups = res.data().grupos || []
+
+            userGroups.forEach((group)=>{
+                searchGroupByID(group)
+            })
+
+		})
+    ;
+}
+
+

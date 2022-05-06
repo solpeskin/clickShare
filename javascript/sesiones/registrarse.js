@@ -117,14 +117,27 @@ function crearUser (){
     }
 }
 
+
+// generar id
+function uuid (){
+    return 'xxxxxxxxxxxxxxx-xxxxxxxxxxxxxxxxxx-xxxx'.replace(/[xy]/g, function(c) {
+        var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+    });
+}
+
+
 // firebase
 // guardar usuario en firebase
 function guardar (){
-    db.collection("usuarios").doc(datoUsuario()).set({
+    let id = uuid()
+    db.collection("usuarios").doc(`${id}`).set({
         nombre: datoUsuario(),
         email: datoMail(),
         contraseña: datoContra(),
         grupos: "",
+        id: `${id}`,
+        fotoPerfil: "",
     })
 
     .then(() => {
