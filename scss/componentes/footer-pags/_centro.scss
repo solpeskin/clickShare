@@ -1,51 +1,8 @@
 .centro-ayuda {
-    footer {
-        background-color: $negro;
-    }
-    background-color: white;
-
-    .busqueda {
-        background-color: $rosaOscuro;
-        background-size: cover;
-        @include espacios (30px 30px , 130px 0);
-        border-radius: 10px;
-        @include tamaño (auto + 200px , auto + 50px);
-
-        h4 {
-            color: white;
-            font-weight: 900;
-            font-size: 40px;
-            text-align: center;
-        }
-
-        .buscar {
-            text-align: center;
-
-            input {
-                @include tamaño (500px,40px);
-                @include espacios (50px 0px, 0 10px);
-                border: 1px solid rgb(255, 255, 255) ;
-                background-color: white;
-                outline: white;
-            } 
-
-            button {
-                background: none;
-                width: 40px;
-                height: 40px;
-                border: none;
-                fill: white;
-                transition: all 0.5s ease;
-
-                &:hover {
-                    transform: translateX(5px) ;
-                }
-            }
-        }   
-    }
-
-
+    
+    
     .preguntas-destacadas {
+        background-color: $negro;
         padding: 50px 0 120px 0;
         
         h5 {

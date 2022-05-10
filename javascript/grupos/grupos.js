@@ -5,7 +5,7 @@ function searchGroupByID (groupID){
     .doc(`${groupID}`) 
     .get()
     .then((res)=>{
-        domGrupo(res.data())
+        domGrupo(res.data()) 
     })
 }
 

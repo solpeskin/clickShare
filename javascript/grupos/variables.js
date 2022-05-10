@@ -18,8 +18,8 @@ const photosOnHTML = document.querySelector(".photos")
 
 
 let userGroups = []; 
-
 let groupPressed ;
+let userData ;
 
 
 // lightmode
@@ -45,8 +45,8 @@ function getUserGroups(username) {
 		.doc(`${username}`) 
 		.get()
 		.then((res) => {
-            userGroups = res.data().grupos || []
-
+            userData = res.data()
+            userGroups = userData.grupos || []
             userGroups.forEach((group)=>{
                 searchGroupByID(group)
             })
@@ -54,5 +54,3 @@ function getUserGroups(username) {
 		})
     ;
 }
-
-

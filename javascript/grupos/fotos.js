@@ -16,21 +16,34 @@ function getUserGroupsPhotos(group) {
             let eachgroupPhotos = res.data().fotos || []
 
             eachgroupPhotos?.forEach(photo => {
+                console.log (getUserFromPhoto(photo.user))
                 addNewPhoto(photo.link)
             });
 		})
     ;
 }
 
+function getUserFromPhoto (userID){
+    return db.collection("usuarios").doc(`${userID}`).get()
+        .then((res) => {
+            return res.data().nombre
+		})
+        
+        
+    ;
+}
+
+
 function addNewPhoto (photolink){
-    const newPhoto = `    
+    const newPhotoHTML = `    
     <div class="IMG">
         <img src="${photolink}" alt="foto grupos">
+        <div class= "hoverIMG">
+            <p class="person-uploaded"></p>
+        </div>
     </div>
     `
-    photosOnHTML.innerHTML += (newPhoto)
-    console.log(newPhoto)
-    console.log(photosOnHTML)
+    photosOnHTML.innerHTML += (newPhotoHTML)
 }
 
 // cuando abro grupo
@@ -54,13 +67,13 @@ function openPhotos (group){
 
 // subir foto a fb
 function setPhoto (group, date, link){
-    let newPhoto = {
+    let newPhotoJS = {
         user: `${currentUser.id}`,
         link: `${link}`,
         date: `${date}`,
     }
     
-    userGroupsPhotos.push(newPhoto)
+    userGroupsPhotos.push(newPhotoJS)
     addNewPhoto(link)
 
     db.collection("grupos")

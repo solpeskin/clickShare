@@ -27,6 +27,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <!-- java script  -->
+    <!-- firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+    <script defer src="../../../javascript/base-datos/configuracion.js"></script>
+
     <!-- main  -->
     <script defer src="../../../javascript/mainVars.js"></script>
 
@@ -48,51 +55,15 @@
 
 <body id="Pfooter" class="centro-ayuda">
     <header class="header1"></header>
-    <section class="busqueda" >
-        <h4 data-aos="fade-up" data-aos-duration="1000">  ¡HOLA! ¿CÓMO PODRÍAMOS AYUDARTE?</h4>
-        <div class="buscar">
-            <input type="text" placeholder="Escriba su pregunta" id="pregunta" data-aos="fade-up" data-aos-duration="1500">
-            <button type="submit" id="buscador" aria-label="buscar" data-aos="fade-up" data-aos-duration="1500">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"  class="bi bi-search" viewBox="0 0 16 16">
-                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                </svg>
-            </button>  
-        </div>
-    </section>
     <section id="preguntas">
         <div></div>
     </section>
 
     <section class="preguntas-destacadas " data-aos="fade-up" data-aos-duration="1000">
-       <h5>Preguntas destacadas</h5>
-       <div id="questions">
-
-       </div>
+       <h5>Preguntas</h5>
         
        <div class="todas-pregs">
-            <div class="preguntas">
-                <div class="contenedores">
-                    <p class="que">¿Cómo puedo compartir el link de mi grupo?</p>
-                    <p class="ans">Para compartir el link, simplemente debes ir a ajustes del grupo, compartir fotos y seleccionar la opción "sí".</p>
-                </div>
-                <div class="contenedores">
-                    <p class="que">No se suben las fotos que saco</p>
-                    <p class="ans"> Asegurate que Click&Share tenga acceso a tus fotos. Si no es así, puedes cambiarlo desde los ajustes de tu
-                        teléfono.</p>
-                </div>
-            </div>  
-            <div class="preguntas">
-                <div class="contenedores">
-                    <p class="que">¿Cómo creo un grupo?</p>
-                    <p class="ans">Para crear un grupo ve al botón con el signo "+", introduzca un nombre para el grupo y automáticamente se creará.
-                        Todos los grupos aparecerán en la sección "Grupos".
-                    </p>
-                </div>
-                <div class="contenedores">
-                    <p class="que">¿Cuántos grupos se pueden tener?</p>
-                    <p class="ans">Se pueden tener ilimitados grupos. También puedes eliminar grupos si así lo quisieses apretando el botón "salir de grupo"</p>
-                </div>
-            </div>      
+
        </div>
     </section>
     

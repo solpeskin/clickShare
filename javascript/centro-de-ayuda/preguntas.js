@@ -1,15 +1,24 @@
 function showQuestions(data){
-    data.forEach(e => {
-        DOMquestion(e.pregunta, e.respuesta)  
+    data.forEach(e=>{
+        const div = document.createElement("div")
+        div.classList.add("preguntas")
+        
+        e.contenedor.forEach(e=>{
+            div.innerHTML += DOMquestion(e.pregunta, e.respuesta)
+        })
+
+        document.querySelector(".todas-pregs").appendChild(div)
     });
+
 }
 
 function DOMquestion (que, ans){
-    const donde = document.getElementById("questions")
-    const div = document.createElement("div")
-    let dom = `<h6 class="pregunta">${que}</h6>
-                <h6 class="respuesta">${ans}</h6>`
+    let dom = `
+            <div class="contenedores">
+                <p class="que">${que}</p>
+                <p class="ans">${ans}</p>
+            </div>`
 
-    div.innerHTML = dom;
-    donde.appendChild(div);
+
+    return dom
 }

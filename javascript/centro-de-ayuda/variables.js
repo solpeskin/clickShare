@@ -17,7 +17,6 @@ let url = "../../../JSON/preguntas.json"
 fetch(url)
     .then(res => res.json())
     .then(data => {
-        console.log(data);
         showQuestions(data)
     })
 

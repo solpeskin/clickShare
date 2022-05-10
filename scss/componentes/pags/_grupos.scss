@@ -4,13 +4,18 @@
         background-color: white;
     }
 
+    h2 {
+        color: #6d6d6d ;
+    }
+    
+    a, h6, p, h3, svg {
+        fill: #4e4e4e;
+        color: #000000;
+    }
+
     .grupos-pag {
         .header-photo-options{
             li {
-                a{
-                    color:#353535 ;
-                }
-
                 &:hover {
                     background-color: #f1f1f1;
                 }
@@ -33,33 +38,17 @@
                 input {
                     border: 0.6px solid #a1a1a1;
                 }
-    
-                button svg{
-                    fill: #201f23;
-                }
-            }
-        
-            p{
-                color: rgb(75, 75, 75);
             }
 
             .addNewGroup, .grupoIMG {
                 background-color: #f1f1f1;
             }
 
-            .grupoInfo h6 {
-                color: #201f23;
-            }
-
-            .newPhoto {
-                fill: $negro;
-            }
         }
 
         .perfil {
             
             svg, .nombreUsuario {
-                color: rgb(36, 36, 36);
 
                 &:hover {
                     filter:opacity(90%);
@@ -78,7 +67,7 @@
 
             
             h3 {
-                color: $negro
+                color: #4e4e4e;
             }
 
             input {
@@ -95,11 +84,15 @@
 
 .dark {
     background-color: #201f23 ;
+    
+    a, h6, p, h3, svg, h2 , input, ul, li{
+        fill: white;
+        color: white;
+    }
 
     header {
         border-right: 1px solid white;
         background-color: rgb(27, 27, 27);
-        color: white;
 
         .perfil { 
             svg {
@@ -120,12 +113,8 @@
     .grupos-pag {
 
         .header-photo-options{
-            color: white;
     
             li {
-                a {
-                    color: white;
-                }
 
                 &:hover {
                     background-color: rgba(128, 128, 128, 0.377);
@@ -140,24 +129,16 @@
         }
 
         .grupos {
-
-            .grupoInfo h6 {
-                color: #ffffff;
-            }
             
             .addNewGroup, .grupoIMG {
                 background-color: rgba(128, 128, 128, 0.377)
             }
 
-            p{
-                color: white;
-            }
             
             .search-groups {
                 input {
                     background-color:  rgb(27, 27, 27);
                     border: 0.5px solid white;
-                    color: white;
                 }
             
             }
@@ -201,15 +182,18 @@
 
 #gruposBody {
     header {
+        top: 0px;
+        position:fixed;
         align-items: center;
         padding: 10px 30px;
         box-shadow: 0px 0px 5px rgb(158, 158, 158);
         @include flex (row, space-around);
+        @include tamaño (100vw, 60px);
 
         h2 {
             text-align: center;
             font-size: 25px;
-            font-weight: 700;
+            font-weight: 500;
             margin-bottom: 0px;
         }
 
@@ -274,11 +258,12 @@
     }
 
     .grupos-pag {
+        margin-top: 60px;
         display: grid;
         grid-template-columns: 200px 80%;
 
         .grupos {
-            margin: 50px 10px 50px 80px;
+            margin: 0px 10px 50px 80px;
 
             .search-groups{
                 display: flex;
@@ -352,21 +337,34 @@
                     &:hover {
                         box-shadow: 0px 0px 20px rgba(128, 128, 128, 0.281);
                         transform: scale(1.05);
+                        transform: translateY(-6px);
                     }
                 }
             }
 
             .groupPhotos{
-                margin-top: 30px;
+                margin-top: 50px;
+
                 .infoGroup{
+                    @include flex (row, end);
+                    align-items: center;
                     margin-bottom: 5px;
-                    @include flex (row, start);
-                    align-items:center;
 
                     h6 {
-                        margin-left: auto;
-                        font-size: 20px;
-                        font-weight: 600;
+                        font-size: 60px;
+                        font-weight: 400;
+                        margin-right: auto;
+                    }
+
+                    svg {
+                        @include tamaño (23px, 23px);
+                        margin: 10px;
+                        transition: all 0.4s ease;
+        
+                        &:hover {
+                            transform: translateY(-2px);
+                            filter: brightness(150%)
+                        }
                     }
                 }
 
@@ -375,25 +373,27 @@
                     flex-wrap: wrap;
 
                     .IMG {
-                        margin: 2px;
+                        margin: 5px;
                         height: 200px;
 
-                        img {
+                        img, .hoverIMG {
                             height: 100%;
                             width: auto;
                         }
+
+                        .hoverIMG{
+                            position: relative;
+                            top: -200px;
+                            transition: 0.3s all  ease;
+                            opacity: 0%;
+                        }
+                        
+                        &:hover .hoverIMG{
+                            background: linear-gradient(#4e4e4ea1, #9198e500);
+                            opacity: 100%;
+                        }
                     }
-                }
-                .newPhoto {
-                    filter: drop-shadow(0px 0px 3.5px rgb(202, 202, 202));
-                    position: fixed;
-                    bottom: 30px;
-                    right: 80px;
-                    transition: all 0.4s ease;
-    
-                    &:hover {
-                        transform: scale(1.2);
-                    }
+
                 }
             }
         }

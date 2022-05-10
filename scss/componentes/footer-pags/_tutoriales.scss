@@ -1,0 +1,18 @@
+.tutoriales-inicio {
+    background-image: url("../src/fotos/neon.jpeg") ;
+    background-size: 100%;
+    @include tamaño (100%, 90vh);
+
+    h5, p {
+        color: white;
+        text-align: center;
+        font-size: 60px;
+    }
+    
+    h5 {
+        padding-top: 50px;
+        font-weight: 700;
+        font-size: 80px;
+    }
+
+}
