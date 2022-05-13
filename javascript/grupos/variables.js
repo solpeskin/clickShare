@@ -5,6 +5,9 @@ const crearGrupoBtn = document.lastChild.querySelector(".crearGrupo");
 const addGrupo = document.querySelector(".addGrupo");
 const salir = document.querySelector(".cancelGroups")
 const btnCrear = document.querySelector("#btnCrear")
+const btnUnir = document.querySelector("#btnUnir")
+
+const shareIdDIV = document.querySelector(".shareGroupId-bg")
 
 // fotos
 const groupPhotos = document.querySelector(".groupPhotos");
@@ -17,7 +20,8 @@ const dragZone = document.querySelector(".upload-img_button")
 const photosOnHTML = document.querySelector(".photos")
 
 
-let userGroups = []; 
+let userGroups = []; // todos los grupos con la data dentro
+let userFotos = [];
 let groupPressed ;
 let userData ;
 
@@ -46,8 +50,7 @@ function getUserGroups(username) {
 		.get()
 		.then((res) => {
             userData = res.data()
-            userGroups = userData.grupos || []
-            userGroups.forEach((group)=>{
+            userData.grupos.forEach((group)=>{
                 searchGroupByID(group)
             })
 

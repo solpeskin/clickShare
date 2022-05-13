@@ -135,9 +135,10 @@ function guardar (){
         nombre: datoUsuario(),
         email: datoMail(),
         contraseña: datoContra(),
-        grupos: "",
+        grupos: [],
         id: `${id}`,
         fotoPerfil: "",
+        fotos: "",
     })
 
     .then(() => {

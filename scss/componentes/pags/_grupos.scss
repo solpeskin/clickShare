@@ -13,6 +13,12 @@
         color: #000000;
     }
 
+    .extraBoxes{
+        div{
+            background-color: white;
+        }
+    }
+
     .grupos-pag {
         .header-photo-options{
             li {
@@ -88,6 +94,12 @@
     a, h6, p, h3, svg, h2 , input, ul, li{
         fill: white;
         color: white;
+    }
+
+    .extraBoxes{
+        div {
+            background-color: #181818;
+        }
     }
 
     header {
@@ -181,6 +193,14 @@
 }
 
 #gruposBody {
+    .cerrado {
+        display: none;
+    }
+
+    .abierto {
+        display: inline-block;
+    }
+
     header {
         top: 0px;
         position:fixed;
@@ -244,14 +264,6 @@
                     border-top-right-radius: 20px;
                 }
 
-            }
-
-            .cerrado {
-                display: none;
-            }
-
-            .abierto {
-                display: inline-block;
             }
 
         }
@@ -360,10 +372,42 @@
                         @include tamaño (23px, 23px);
                         margin: 10px;
                         transition: all 0.4s ease;
+                        cursor: pointer;
         
                         &:hover {
                             transform: translateY(-2px);
                             filter: brightness(150%)
+                        }
+                    }
+
+                    .cartel-opc-grupos {
+                        z-index: 10;
+                        position: absolute;
+                        top: 170px;
+                        height: 100px;
+                        box-shadow: 2px 2px 8px rgba(56, 56, 56, 0.137);
+                        background-color: white;
+
+                        ul {
+                            padding: 0px;
+
+                            li {
+                                @include tamaño (150px, 50px);
+                                width: 150px;
+                                font-size: 15px;
+                                list-style: none;
+                                padding: 15px 10px;
+                                text-align: center;
+
+                                &:hover {
+                                    background-color: rgb(243, 243, 243)
+                                }
+                                
+                                &:last-child{
+                                    color: red
+                                }
+                            }
+
                         }
                     }
                 }
@@ -386,6 +430,36 @@
                             top: -200px;
                             transition: 0.3s all  ease;
                             opacity: 0%;
+                            @include flex (row, space-between);
+
+                            .person-uploaded {
+                                color: white !important;
+                                padding: 5px;
+                            }
+
+                            .heart {
+                                display: inline-flex;
+                                height: 20px;
+                                margin: auto 5px 5px 0 ;
+
+                                svg {
+                                    @include tamaño (20px, 20px);
+                                    fill: rgb(255, 255, 255);
+                                    transition: all 0.2s ease;
+                                    pointer-events: none;
+                                    
+                                    path {
+                                        pointer-events: none;
+                                    }
+                                }
+
+                                &:hover {
+                                    svg {
+                                        transform: scale(0.9);
+                                    }
+                                }
+                            }
+
                         }
                         
                         &:hover .hoverIMG{
@@ -421,11 +495,39 @@
 
     }
 
-    .addGrupo{
+    .shareGroupId-bg{
+        div {
+            border-radius: 20px;
+            @include tamaño (400px, 300px);
+            @include flex (column, center);
+            align-items: center;
+
+            p {
+                font-size: 20px;
+            }
+
+            h2 {
+                font-size: 60px;
+            }
+        }
+    }
+
+    .extraBoxes {
         background-color: #5e5e5e48;
-        position: absolute;
+        position: fixed;
         @include tamaño (100%, 92%);
+        @include flex (column, center);
         align-items: center;
+
+        .cancel {
+            fill: white !important;
+            position: relative;
+            top: 50px;
+            right: -230px
+        }
+    }
+
+    .addGrupo{
         display: none;
         
         .contentCrearGrupo{
@@ -481,7 +583,6 @@
         align-items: center;
 
         .upload-img-conteiner{
-            background-color: white;
             @include tamaño (400px, 400px);
             border-radius: 30px;
             @include flex (row, center);
@@ -491,7 +592,7 @@
                 @include tamaño (350px, 350px);
 
                 .label_dragover--down, &:hover div {
-                    background-color: rgb(241, 241, 241);
+                    background-color: rgba(117, 117, 117, 0.158);
                 }
 
                 input {
@@ -541,6 +642,74 @@
 
     .displayGrupos {
         @include flex (row, center);
+    }
+
+    .account-settings {
+        @include flex (column, center);
+        align-items: center;
+        padding: 40px;
+
+        .perfilImg{
+            border-radius: 50%;
+            @include tamaño (200px,200px);
+
+            div{
+                height: 100%;
+                width: 100%;
+                border-radius: 50%;
+            }
+
+            .IMGperfil {
+                .perfilCotent {
+                    @include tamaño (100%, 100%);
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+
+            .change-icon-div{
+                display: none;
+                background-color: #0400ff57;
+                position: relative;
+                top: -200px;
+
+                svg{
+                    fill: white;
+                }
+
+                input {
+                    opacity: 0%;
+                    @include tamaño (100%, 100%);
+                    border-radius: 50%;
+                    position: absolute;
+                }
+            }
+
+            &:hover{
+                .change-icon-div{
+                    @include flex (column, center);
+                    align-items: center;
+                }
+            }
+        }
+
+        label {
+            p {
+                margin: 20px 0px 5px 0;
+            }
+
+            input {
+                @include tamaño (400px, 40px);
+                background: none;
+                border: solid 1px gray;
+                padding: 10px;
+            }
+
+            #enviar-cambios{
+                margin-top: 20px;
+                @include boton ($azul, white)
+            }
+        }
     }
 
 }

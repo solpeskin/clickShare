@@ -5,6 +5,7 @@ function searchGroupByID (groupID){
     .doc(`${groupID}`) 
     .get()
     .then((res)=>{
+        userGroups.push (res.data())
         domGrupo(res.data()) 
     })
 }
@@ -25,39 +26,45 @@ function domGrupo(grupo){
 }
 
 // subir grupos a firebase  
-function setGroup(username, groups, groupData) {
+function setGroup(username, groups) {
     // subir grupo a aray de grupos en usuario
 	db.collection("usuarios")
 		.doc(`${username}`)
 		.update({
 			grupos: groups,
 		})
-
-    // crear documento en coleccion "grupos"
-    db.collection("grupos").doc(`${groupData.id}`).set({
-        foto: groupData.foto,
-        shortId:groupData.shortId,
-        id: groupData.id,
-        nombre: groupData.nombre,
-        participantes: `${username}`,
-        creador: groupData.creador,
-    })
 } 
+
+function createGroupOnFb (groupData){
+        // crear documento en coleccion "grupos"
+        db.collection("grupos").doc(`${groupData.id}`).set({
+            foto: groupData.foto,
+            shortId:groupData.shortId,
+            id: groupData.id,
+            nombre: groupData.nombre,
+            participantes: [`${currentUser.id}`],
+            creador: groupData.creador,
+            fotos: [],
+        })
+}
 
 // registrar grupo 
 function crearGrupo (){
     if (nombreGrupo.value.trim()){
         let grupoNuevo = {
             foto: "",
+            fotos: [],
             shortId: generarID(),
             id: generarUID(),
             nombre: nombreGrupo.value.trim(),
             creador: currentUser.id,
         };
 
-        userGroups.push(grupoNuevo.id);
+        userData.grupos.push(grupoNuevo.id);
+        userGroups.push(grupoNuevo)
         
-        setGroup(currentUser.id, userGroups, grupoNuevo)
+        setGroup(currentUser.id, userData.grupos)
+        createGroupOnFb (grupoNuevo)
         cerrarAdd()
         domGrupo(grupoNuevo);
     }

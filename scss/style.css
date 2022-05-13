@@ -1205,6 +1205,10 @@ footer .pagsTexts .texts h5, footer .pagsTexts .redes h5 {
   color: #000000;
 }
 
+.light .extraBoxes div {
+  background-color: white;
+}
+
 .light .grupos-pag .header-photo-options li:hover {
   background-color: #f1f1f1;
 }
@@ -1266,6 +1270,10 @@ footer .pagsTexts .texts h5, footer .pagsTexts .redes h5 {
 .dark a, .dark h6, .dark p, .dark h3, .dark svg, .dark h2, .dark input, .dark ul, .dark li {
   fill: white;
   color: white;
+}
+
+.dark .extraBoxes div {
+  background-color: #181818;
 }
 
 .dark header {
@@ -1339,6 +1347,14 @@ footer .pagsTexts .texts h5, footer .pagsTexts .redes h5 {
 
 .dark .addGrupo .contentCrearGrupo svg {
   fill: white;
+}
+
+#gruposBody .cerrado {
+  display: none;
+}
+
+#gruposBody .abierto {
+  display: inline-block;
 }
 
 #gruposBody header {
@@ -1429,14 +1445,6 @@ footer .pagsTexts .texts h5, footer .pagsTexts .redes h5 {
 #gruposBody header .perfil .perfil-options #miCuenta {
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-}
-
-#gruposBody header .perfil .cerrado {
-  display: none;
-}
-
-#gruposBody header .perfil .abierto {
-  display: inline-block;
 }
 
 #gruposBody .grupos-pag {
@@ -1600,6 +1608,7 @@ footer .pagsTexts .texts h5, footer .pagsTexts .redes h5 {
   margin: 10px;
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
+  cursor: pointer;
 }
 
 #gruposBody .grupos-pag .grupos .groupPhotos .infoGroup svg:hover {
@@ -1607,6 +1616,38 @@ footer .pagsTexts .texts h5, footer .pagsTexts .redes h5 {
           transform: translateY(-2px);
   -webkit-filter: brightness(150%);
           filter: brightness(150%);
+}
+
+#gruposBody .grupos-pag .grupos .groupPhotos .infoGroup .cartel-opc-grupos {
+  z-index: 10;
+  position: absolute;
+  top: 170px;
+  height: 100px;
+  -webkit-box-shadow: 2px 2px 8px rgba(56, 56, 56, 0.137);
+          box-shadow: 2px 2px 8px rgba(56, 56, 56, 0.137);
+  background-color: white;
+}
+
+#gruposBody .grupos-pag .grupos .groupPhotos .infoGroup .cartel-opc-grupos ul {
+  padding: 0px;
+}
+
+#gruposBody .grupos-pag .grupos .groupPhotos .infoGroup .cartel-opc-grupos ul li {
+  width: 150px;
+  height: 50px;
+  width: 150px;
+  font-size: 15px;
+  list-style: none;
+  padding: 15px 10px;
+  text-align: center;
+}
+
+#gruposBody .grupos-pag .grupos .groupPhotos .infoGroup .cartel-opc-grupos ul li:hover {
+  background-color: #f3f3f3;
+}
+
+#gruposBody .grupos-pag .grupos .groupPhotos .infoGroup .cartel-opc-grupos ul li:last-child {
+  color: red;
 }
 
 #gruposBody .grupos-pag .grupos .groupPhotos .photos {
@@ -1640,6 +1681,47 @@ footer .pagsTexts .texts h5, footer .pagsTexts .redes h5 {
   -webkit-transition: 0.3s all  ease;
   transition: 0.3s all  ease;
   opacity: 0%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#gruposBody .grupos-pag .grupos .groupPhotos .photos .IMG .hoverIMG .person-uploaded {
+  color: white !important;
+  padding: 5px;
+}
+
+#gruposBody .grupos-pag .grupos .groupPhotos .photos .IMG .hoverIMG .heart {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  height: 20px;
+  margin: auto 5px 5px 0;
+}
+
+#gruposBody .grupos-pag .grupos .groupPhotos .photos .IMG .hoverIMG .heart svg {
+  width: 20px;
+  height: 20px;
+  fill: white;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  pointer-events: none;
+}
+
+#gruposBody .grupos-pag .grupos .groupPhotos .photos .IMG .hoverIMG .heart svg path {
+  pointer-events: none;
+}
+
+#gruposBody .grupos-pag .grupos .groupPhotos .photos .IMG .hoverIMG .heart:hover svg {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
 }
 
 #gruposBody .grupos-pag .grupos .groupPhotos .photos .IMG:hover .hoverIMG {
@@ -1678,14 +1760,61 @@ footer .pagsTexts .texts h5, footer .pagsTexts .redes h5 {
   text-decoration: none;
 }
 
-#gruposBody .addGrupo {
-  background-color: #5e5e5e48;
-  position: absolute;
-  width: 100%;
-  height: 92%;
+#gruposBody .shareGroupId-bg div {
+  border-radius: 20px;
+  width: 400px;
+  height: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+#gruposBody .shareGroupId-bg div p {
+  font-size: 20px;
+}
+
+#gruposBody .shareGroupId-bg div h2 {
+  font-size: 60px;
+}
+
+#gruposBody .extraBoxes {
+  background-color: #5e5e5e48;
+  position: fixed;
+  width: 100%;
+  height: 92%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#gruposBody .extraBoxes .cancel {
+  fill: white !important;
+  position: relative;
+  top: 50px;
+  right: -230px;
+}
+
+#gruposBody .addGrupo {
   display: none;
 }
 
@@ -1757,7 +1886,6 @@ footer .pagsTexts .texts h5, footer .pagsTexts .redes h5 {
 }
 
 #gruposBody .uploadPhoto-bg .upload-img-conteiner {
-  background-color: white;
   width: 400px;
   height: 400px;
   border-radius: 30px;
@@ -1782,7 +1910,7 @@ footer .pagsTexts .texts h5, footer .pagsTexts .redes h5 {
 }
 
 #gruposBody .uploadPhoto-bg .upload-img-conteiner label .label_dragover--down, #gruposBody .uploadPhoto-bg .upload-img-conteiner label:hover div {
-  background-color: #f1f1f1;
+  background-color: rgba(117, 117, 117, 0.158);
 }
 
 #gruposBody .uploadPhoto-bg .upload-img-conteiner label input {
@@ -1859,6 +1987,101 @@ footer .pagsTexts .texts h5, footer .pagsTexts .redes h5 {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+#gruposBody .account-settings {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 40px;
+}
+
+#gruposBody .account-settings .perfilImg {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+}
+
+#gruposBody .account-settings .perfilImg div {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+}
+
+#gruposBody .account-settings .perfilImg .IMGperfil .perfilCotent {
+  width: 100%;
+  height: 100%;
+  height: 100%;
+  width: 100%;
+}
+
+#gruposBody .account-settings .perfilImg .change-icon-div {
+  display: none;
+  background-color: #0400ff57;
+  position: relative;
+  top: -200px;
+}
+
+#gruposBody .account-settings .perfilImg .change-icon-div svg {
+  fill: white;
+}
+
+#gruposBody .account-settings .perfilImg .change-icon-div input {
+  opacity: 0%;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  position: absolute;
+}
+
+#gruposBody .account-settings .perfilImg:hover .change-icon-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#gruposBody .account-settings label p {
+  margin: 20px 0px 5px 0;
+}
+
+#gruposBody .account-settings label input {
+  width: 400px;
+  height: 40px;
+  background: none;
+  border: solid 1px gray;
+  padding: 10px;
+}
+
+#gruposBody .account-settings label #enviar-cambios {
+  margin-top: 20px;
+  background-color: #1c57d3;
+  color: white;
+  border: 1px solid #1c57d3;
+}
+
+#gruposBody .account-settings label #enviar-cambios:hover {
+  background: none;
+  color: #1c57d3;
 }
 
 #fotoPerfil svg {

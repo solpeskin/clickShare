@@ -1,49 +1,30 @@
 let link;
 
-// array con fotos de cada grupo
-let userGroupsPhotos = []
-
 if (groupPressed){
     getUserGroupsPhotos(groupPressed)
 }
 
-function getUserGroupsPhotos(group) {
-	db.collection("grupos")
-		.doc(`${group}`) 
-		.get()
-		.then((res) => {
-            userGroupsPhotos = res.data().fotos || []
-            let eachgroupPhotos = res.data().fotos || []
+function addNewPhoto (photo){
+    let userUploadedPhoto;
 
-            eachgroupPhotos?.forEach(photo => {
-                console.log (getUserFromPhoto(photo.user))
-                addNewPhoto(photo.link)
-            });
+    db.collection("usuarios")
+		.doc(`${photo.user}`).get().then((res) => {
+            userUploadedPhoto = res.data().nombre
+
+            const newPhotoHTML = `    
+            <div class="IMG">
+                <img src="${photo.link}" alt="foto grupos">
+                <div class= "hoverIMG">
+                    <p class="person-uploaded">${userUploadedPhoto}</p>
+                    <div class ="heart ${checkLike(photo)}" id="${photo.id}" onclick ="likePhoto (event)" >
+                        ${likedHTML(checkLike(photo))}
+                    </div>
+                </div>
+            </div>
+            `
+            photosOnHTML.innerHTML += (newPhotoHTML)
 		})
     ;
-}
-
-function getUserFromPhoto (userID){
-    return db.collection("usuarios").doc(`${userID}`).get()
-        .then((res) => {
-            return res.data().nombre
-		})
-        
-        
-    ;
-}
-
-
-function addNewPhoto (photolink){
-    const newPhotoHTML = `    
-    <div class="IMG">
-        <img src="${photolink}" alt="foto grupos">
-        <div class= "hoverIMG">
-            <p class="person-uploaded"></p>
-        </div>
-    </div>
-    `
-    photosOnHTML.innerHTML += (newPhotoHTML)
 }
 
 // cuando abro grupo
@@ -51,36 +32,50 @@ function openPhotos (group){
     // se muestra página de grupo
     groupPhotos.classList.remove("displayNone")
     allGroups.classList.add("displayNone")
-    
-    groupPressed = group;
 
+    groupPressed = userGroups.find(x => x.id == group)
+    groupPosition = userGroups.indexOf(groupPressed)
+
+    document.getElementById("nombreGrupo").innerHTML = groupPressed.nombre
+            
     // obtener fotos que ya están en el grupo
-    getUserGroupsPhotos(groupPressed)
+    groupPressed.fotos?.forEach(photo => {
+        addNewPhoto(photo)
+    });
 
-    db.collection("grupos")
-    .doc(`${group}`) 
-    .get()
-    .then((res)=>{
-        document.getElementById("nombreGrupo").innerHTML = res.data().nombre
-    })
+
 }
 
 // subir foto a fb
 function setPhoto (group, date, link){
-    let newPhotoJS = {
+    let newPhotoFB = {
+        id: generarUID (),
         user: `${currentUser.id}`,
         link: `${link}`,
         date: `${date}`,
     }
-    
-    userGroupsPhotos.push(newPhotoJS)
-    addNewPhoto(link)
+
+    groupPressed.fotos.push(newPhotoFB)
+    console.log(newPhotoFB.id)
+
+    userFotos.push({
+        id : newPhotoFB.id,
+        liked : false
+    })
+
+    addNewPhoto(newPhotoFB)
 
     db.collection("grupos")
-		.doc(`${group}`)
+		.doc(`${group.id}`)
 		.update({
-			fotos: userGroupsPhotos,
+			fotos: groupPressed.fotos,
 		})
+
+    db.collection("usuarios")
+        .doc(`${currentUser.id}`)
+        .update({
+            fotos : userFotos
+        })
 }
 
 inputPhoto.onchange = function(){
@@ -105,3 +100,4 @@ sendPhoto.addEventListener("click", ()=>{
     setPhoto(groupPressed, inputPhoto.files[0].lastModifiedDate, link)
     cerraruploadPhotoBg()
 })
+

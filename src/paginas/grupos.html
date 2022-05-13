@@ -27,22 +27,24 @@
     <script defer src="./../../javascript/grupos/funciones.js"></script>
     <script defer src="./../../javascript/grupos/css-interact.js"></script>
     <script defer src="./../../javascript/grupos/grupos.js"></script>
+    <script defer src="./../../javascript/grupos/joinGroup.js"></script>
+    <script defer src="./../../javascript/grupos/likes.js"></script>
     <script defer src="./../../javascript/grupos/fotos.js"></script>
-
+    <script defer src="./../../javascript/grupos/cuenta.js"></script>
 </head>
 <body id="gruposBody" >
     <header>
         <h2>CLICK&SHARE</h2>
         <div class="perfil">
             <h6 class="nombreUsuario "> </h6>
-            <div id="fotoPerfil">
+            <div id="fotoPerfil" class="perfilImg">
                 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle fotoPerfilSVG" viewBox="0 0 16 16" >
                     <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
                     <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
                   </svg>
             </div>
             <div class="perfil-options shadow cerrado">
-                <button id="miCuenta">Mi cuenta</button>
+                <button id="miCuenta" onclick="abrirCuenta()">Mi cuenta</button>
                 <button id="cerrarSesion">Cerrar sesión</button>
             </div>
         </div>
@@ -86,12 +88,24 @@
                         <path fill-rule="evenodd" d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z"/>
                         <path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
                       </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
+
+                    <!-- compartir grupo -->
+                    <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-share-fill share-group"  onclick="abrirShareIdBg()" viewBox="0 0 16 16">
                         <path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z"/>
                       </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+
+                    <!-- 3 puntos  -->
+                    <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-three-dots-vertical" id="cartel-opc-grupos" viewBox="0 0 16 16">
                         <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
                       </svg>
+                    <div class="cartel-opc-grupos cerrado" >
+                        <ul>
+                            <li>Salir del grupo</li>
+                            <li >Denunciar grupo</li>
+                        </ul>
+                    </div>
+
+                    <!-- icon agregar foto -->
                     <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-image newPhoto" viewBox="0 0 16 16" onclick="abriruploadPhotoBg()">
                         <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
                         <path d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z"/>
@@ -100,10 +114,47 @@
                 <div class="photos">
                 </div>
             </div>
+
+            <div class="account-settings displayNone">
+                <div class="perfilImg">
+                    <div class="IMGperfil">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle perfilCotent" viewBox="0 0 16 16" >
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                        </svg>
+                    </div>
+                    <div class="change-icon-div">
+                        <input type="file" id="nuevo-fotoperfil" accept="image/*,.pdf image/*,.jpg image/*,.png image/*,.jpeg">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-camera" viewBox="0 0 16 16">
+                            <path d="M15 12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h1.172a3 3 0 0 0 2.12-.879l.83-.828A1 1 0 0 1 6.827 3h2.344a1 1 0 0 1 .707.293l.828.828A3 3 0 0 0 12.828 5H14a1 1 0 0 1 1 1v6zM2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2z"/>
+                            <path d="M8 11a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zm0 1a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM3 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"/>
+                        </svg>
+                    </div>
+                </div>
+                <label class="username-input-change" for="name">
+                    <p>Nombre:</p>
+                    <input type="text" id="nuevo-username" placeholder="" max="15" min="4">
+                </label>
+                <label class="username-input-change" for="mail">
+                    <p>Mail:</p>
+                    <input type="mail" required id="nuevo-usermail" placeholder="">
+                </label>
+                <label class="username-input-change" for="mail">
+                    <p>Contraseña:</p>
+                    <input type="password" id="nueva-contra" min="6" placeholder="">
+                </label>
+                <label for="submit">
+                    <input type="submit" id="enviar-cambios" value="Guardar cambios">
+                </label>
+            </div>
         </div>
 
         <!-- carteles que aparecen al apretar algo (?) -->
-        <div class="uploadPhoto-bg displayNone">
+        <div class="uploadPhoto-bg displayNone extraBoxes">
+            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-x-lg cancel leaveUploadImage" viewBox="0 0 16 16" onclick="cerraruploadPhotoBg()">
+                <path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/>
+                <path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"/>
+              </svg>
             <div class="upload-img-conteiner" >
                 <label for="image">
                     <input type="file" class="photoFile" accept="image/*,.pdf image/*,.jpg image/*,.png image/*,.jpeg">
@@ -117,7 +168,19 @@
             <button class="send-photo">Envíar</button>
         </div>
 
-        <div class="addGrupo">
+        <!-- id del grupo para copiar -->
+        <div class="shareGroupId-bg  extraBoxes displayNone">
+            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-x-lg cancel leaveShareId" viewBox="0 0 16 16" onclick="cerrarShareIdBg ()">
+                <path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/>
+                <path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"/>
+              </svg>
+            <div>
+                <p>Código del grupo:</p>
+                <h2 class="groupId"></h2>
+            </div>
+        </div>
+
+        <div class="addGrupo extraBoxes">
             <div class="contentCrearGrupo">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-lg cancelGroups" viewBox="0 0 16 16" onclick="cerrarAdd()">
                     <path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/>
@@ -138,6 +201,7 @@
             </div>
         </div>
 
+        
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
