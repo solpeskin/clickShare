@@ -138,7 +138,7 @@ function guardar (){
         grupos: [],
         id: `${id}`,
         fotoPerfil: "",
-        fotos: "",
+        fotos: [],
     })
 
     .then(() => {

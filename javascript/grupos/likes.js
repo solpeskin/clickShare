@@ -1,18 +1,19 @@
-function likePhoto (e){
+function likePhoto (e, id){
     if (e.target.classList.contains("liked")){
-        document.getElementById(`${e.target.id}`).innerHTML = likedHTML(false)
+
+        e.target.innerHTML = likedHTML(false)
         e.target.classList.remove("liked")
         
-        actualizarLike (e.target.id, false)
+        actualizarLike (id, false)
         
     }
     
     // si el user quiere likear la img
     else {
-        document.getElementById(`${e.target.id}`).innerHTML = likedHTML(true)
+        e.target.innerHTML = likedHTML(true)
         e.target.classList.add("liked")
     
-        actualizarLike (e.target.id, true)
+        actualizarLike (id, true)
     }
 
     
@@ -35,7 +36,9 @@ function likedHTML(state){
 }
 
 function actualizarLike (photoID, state){
-    let indexFoto = userData.fotos.indexOf(userData.fotos.find(foto=>foto.id == photoID))
+    userData.fotos = userData.fotos || []
+
+    let indexFoto = userData.fotos?.indexOf(userData.fotos?.find(foto=>foto.id == photoID))
     userData.fotos[indexFoto].liked = state
 
     db.collection("usuarios")
@@ -46,7 +49,6 @@ function actualizarLike (photoID, state){
 }
 
 function checkLike (photo){
-    let fotoCheck = userData.fotos.find(foto => foto.id == photo.id)
-    let returner = fotoCheck?.liked ? "liked" : ""
-    return returner
+    let fotoCheck = userData.fotos?.find(foto => foto.id == photo.id)
+    return fotoCheck?.liked ? "liked" : ""
 }

@@ -1,30 +1,33 @@
-// grupos
-const nombreGrupo = document.querySelector(".nombreGrupo");
-const idGrupo = document.querySelector(".idGrupo");
-const crearGrupoBtn = document.lastChild.querySelector(".crearGrupo");
+// screen 
+const showOnScreen = document.querySelector(".grupos")
+
+// grupos screen
+// crear grupo
 const addGrupo = document.querySelector(".addGrupo");
 const salir = document.querySelector(".cancelGroups")
+
+// grupos 
+const allGroups = document.querySelector("#allGroups");
+const newPhoto = document.querySelector(".newPhoto");
+
+// form para crear o grupo
+const nombreGrupo = document.querySelector(".nombreGrupo");
+const idGrupo = document.querySelector(".idGrupo");
 const btnCrear = document.querySelector("#btnCrear")
 const btnUnir = document.querySelector("#btnUnir")
 
+// cartel que muestra id 
 const shareIdDIV = document.querySelector(".shareGroupId-bg")
 
-// fotos
-const groupPhotos = document.querySelector(".groupPhotos");
-const allGroups = document.querySelector("#allGroups");
-const newPhoto = document.querySelector(".newPhoto");
+// cartel para subir foto
 const uploadPhotoBg = document.querySelector(".uploadPhoto-bg");
 const sendPhoto = document.querySelector(".send-photo")
 const inputPhoto = document.querySelector(".photoFile")
 const dragZone = document.querySelector(".upload-img_button")
-const photosOnHTML = document.querySelector(".photos")
-
 
 let userGroups = []; // todos los grupos con la data dentro
-let userFotos = [];
 let groupPressed ;
 let userData ;
-
 
 // lightmode
 const lightmodeBtn = document.querySelector(".lightmode");
@@ -45,11 +48,15 @@ if ( !db.collection("usuarios").doc(`${currentUser.nombre}`) ){
 
 // get user data 
 function getUserGroups(username) {
+    userGroups = []
+    userData = ""
+
 	db.collection("usuarios")
 		.doc(`${username}`) 
 		.get()
 		.then((res) => {
             userData = res.data()
+            
             userData.grupos.forEach((group)=>{
                 searchGroupByID(group)
             })

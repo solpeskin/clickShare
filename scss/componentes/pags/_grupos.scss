@@ -40,14 +40,13 @@
         }
 
         .grupos {
-            .search-groups{
-                input {
-                    border: 0.6px solid #a1a1a1;
-                }
-            }
-
             .addNewGroup, .grupoIMG {
                 background-color: #f1f1f1;
+            }
+
+            .cartel-opc-grupos, .list-participants{
+                box-shadow: 2px 2px 8px rgba(56, 56, 56, 0.137);
+                background-color: white;
             }
 
         }
@@ -146,13 +145,14 @@
                 background-color: rgba(128, 128, 128, 0.377)
             }
 
-            
-            .search-groups {
-                input {
-                    background-color:  rgb(27, 27, 27);
-                    border: 0.5px solid white;
+            .cartel-opc-grupos, .list-participants{
+                box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.137);
+                background-color: rgb(46, 46, 46);
+
+                li {
+                    color: white;
                 }
-            
+
             }
         }
 
@@ -169,7 +169,7 @@
 
     .addGrupo {
         .contentCrearGrupo{
-            background-color: rgb(27, 27, 27);
+            background-color: #181818;
 
             h3, h6 {
                 color: white;
@@ -194,11 +194,11 @@
 
 #gruposBody {
     .cerrado {
-        display: none;
+        display: none ;
     }
 
     .abierto {
-        display: inline-block;
+        @include flex (column, start);
     }
 
     header {
@@ -234,7 +234,7 @@
             }    
             
             .perfil-options {
-                z-index: 3;
+                z-index: 100;
                 position: absolute;
                 top: 70px;
                 right: 20px;
@@ -274,37 +274,35 @@
         display: grid;
         grid-template-columns: 200px 80%;
 
-        .grupos {
-            margin: 0px 10px 50px 80px;
-
-            .search-groups{
-                display: flex;
-                align-items: center;
+        .header-photo-options{
+            @include flex (column, space-between);
+            height: auto;
+            padding: 20px 20px;
     
-                input {
-                    padding:  0 10px;
-                    border-radius: 5px;
-                    outline: none;
-                    @include tamaño (300px, 40px)
-                }
+            ul {
+                padding: 0px ;
     
-                button {
-                    border: none;
-                    @include tamaño (30px, 30px);
+                li {
+                    cursor: pointer;
+                    border-radius: 10px;
+                    padding: 20px;
+                    list-style: none;
+                    font-weight: 500;
     
-                    background: none;
-                    
-                    &:hover {
-                        transform: scale(1.1);
+                    a {
+                        text-decoration: none;
                     }
-                    
                 }
             }
+        }
+
+        .grupos {
+            margin: 0px 10px 50px 80px;
 
             #allGroups{
                 @include flex (row, start);
                 flex-wrap: wrap;
-
+                
                 .grupoInfo {
                     margin-right: 30px;
                     
@@ -328,14 +326,65 @@
                 }
 
                 .grupoIMG {
-                    display: flex;
-                    justify-content: center;
                     align-items: center;
+                    
+                    div {
+                        @include tamaño (100% ,100%);
+                        border-radius: 30px;
 
-                    svg {
-                        fill: rgb(190, 190, 190);
-                   }
+                        svg, button {
+                            margin: 0 auto;
+                        }
+                    }
+                    
+                    // foto que se ve
+                    .foto-perfil-grupo {
+                        overflow: hidden;
+                        
+                        svg {
+                            fill: rgb(190, 190, 190);
+                        }
 
+                        img {
+                            object-fit: cover;
+                            @include tamaño (100%, 100%)
+                        }
+                    }
+                    
+                    // hover
+                    .edit-group{
+                        cursor: pointer;
+                        transition: all 0.3s ease-in-out;
+                        position: relative;
+                        top: -200px;
+                        background-color: rgba(0, 0, 0, 0.226);
+                        opacity: 0%;
+                        pointer-events: none;
+
+                        button {
+                            pointer-events: all;
+                            background-color: $rosaOscuro;
+                            width: max-content;
+                            height: auto;
+                            border: none;
+                            border-radius: 50%;
+                            padding: 9px;
+
+                            &:hover {
+                                filter:contrast(150%);
+                            }
+
+                            svg {
+                                pointer-events: none;
+                                fill: white;
+
+                            }
+                        }
+                    }
+
+                    &:hover .edit-group{
+                        opacity: 100%;
+                    }
                 }
     
                 .grupoIMG, .addNewGroup{
@@ -343,7 +392,6 @@
                     margin-top: 30px;
                     @include tamaño (200px, 200px);
                     border-radius: 30px;
-                    @include flex (row, center);
                     transition: all 0.5s ease;
     
                     &:hover {
@@ -352,22 +400,19 @@
                         transform: translateY(-6px);
                     }
                 }
+
+                .addNewGroup, .grupoIMG div{
+                    @include flex (column, center);
+                }
+                
             }
 
-            .groupPhotos{
-                margin-top: 50px;
-
+            .group-photos-section{
                 .infoGroup{
                     @include flex (row, end);
                     align-items: center;
                     margin-bottom: 5px;
-
-                    h6 {
-                        font-size: 60px;
-                        font-weight: 400;
-                        margin-right: auto;
-                    }
-
+    
                     svg {
                         @include tamaño (23px, 23px);
                         margin: 10px;
@@ -378,41 +423,84 @@
                             transform: translateY(-2px);
                             filter: brightness(150%)
                         }
+
+                        path{
+                            pointer-events: none;
+                        }
                     }
 
+                    .list-participants {
+                        overflow-y: scroll;
+                        width: auto;
+                        max-height: 200px;
+                        list-style: none;
+                        padding: 0px;
+                        position: absolute;
+                        top: 170px;
+                        border-radius: 10px;
+
+                        li {
+                            padding: 5px;
+                            width: 180px;
+                            display: inline;
+                            text-align: start;
+
+                            &:first-child{
+                                font-weight: 700;
+                                border-bottom: #d8d8d8 1px solid;
+                            }
+                        }
+                    }
+    
                     .cartel-opc-grupos {
-                        z-index: 10;
                         position: absolute;
                         top: 170px;
                         height: 100px;
-                        box-shadow: 2px 2px 8px rgba(56, 56, 56, 0.137);
-                        background-color: white;
-
+                        border-radius: 10px;
+    
                         ul {
                             padding: 0px;
-
+    
                             li {
+                                cursor: pointer;
                                 @include tamaño (150px, 50px);
                                 width: 150px;
                                 font-size: 15px;
                                 list-style: none;
                                 padding: 15px 10px;
                                 text-align: center;
-
+    
                                 &:hover {
-                                    background-color: rgb(243, 243, 243)
+                                    background-color: rgba(243, 243, 243, 0.432)
                                 }
                                 
-                                &:last-child{
-                                    color: red
+                                &:first-child{
+                                    border-top-left-radius: 10px;
+                                    border-top-right-radius: 10px;
                                 }
-                            }
 
+                                &:last-child{
+                                    border-bottom-right-radius: 10px;
+                                    border-bottom-left-radius: 10px;
+                                }
+
+                            }
+    
                         }
                     }
                 }
+            }
 
-                .photos {
+            .section-photos{
+                margin-top: 50px;
+
+                h6 {
+                    font-size: 60px;
+                    font-weight: 400;
+                    margin-right: auto;
+                }
+
+                .photosCSS {
                     @include flex (row, auto);
                     flex-wrap: wrap;
 
@@ -432,64 +520,120 @@
                             opacity: 0%;
                             @include flex (row, space-between);
 
-                            .person-uploaded {
-                                color: white !important;
-                                padding: 5px;
-                            }
-
-                            .heart {
-                                display: inline-flex;
-                                height: 20px;
+                            .option-image {
+                                @include flex (row, center);
                                 margin: auto 5px 5px 0 ;
 
-                                svg {
-                                    @include tamaño (20px, 20px);
-                                    fill: rgb(255, 255, 255);
-                                    transition: all 0.2s ease;
-                                    pointer-events: none;
-                                    
-                                    path {
-                                        pointer-events: none;
-                                    }
-                                }
+                                .eliminar-imagen{
+                                    position: absolute;
+                                    right: 30px;
 
-                                &:hover {
-                                    svg {
+                                    &:hover {
                                         transform: scale(0.9);
                                     }
                                 }
+    
+                                .heart {
+                                    margin-left: 4px;
+                                    display: inline-flex;
+                                    height: 20px;
+                                    cursor: pointer;
+
+                                    svg {
+                                        pointer-events: none;
+                                    }
+    
+                                    &:hover {
+                                        svg {
+                                            transform: scale(0.9);
+                                        }
+                                    }
+                                }
+    
                             }
 
+                            svg {
+                                @include tamaño (20px, 20px);
+                                fill: rgb(255, 255, 255);
+                                transition: all 0.2s ease;
+                                cursor: pointer;
+                                
+                                path {
+                                    pointer-events: none;
+                                }
+                            }
+                            
                         }
                         
                         &:hover .hoverIMG{
                             background: linear-gradient(#4e4e4ea1, #9198e500);
                             opacity: 100%;
                         }
+
+                        .person-uploaded {
+                            color: white !important;
+                            padding: 5px;
+                        }
+
                     }
 
                 }
             }
         }
 
-        .header-photo-options{
-            @include flex (column, space-between);
-            height: auto;
-            padding: 20px 20px;
-    
-            ul {
-                padding: 0px ;
-    
-                li {
-                    border-radius: 10px;
-                    padding: 20px;
-                    list-style: none;
-                    font-weight: 500;
-    
-                    a {
-                        text-decoration: none;
+    }
+
+    .editGrupo{
+        .content-edit{
+            @include tamaño (400px, 350px);
+            @include flex (column, center);
+            border-radius: 20px;
+            overflow-y: scroll;
+            align-items: center;
+
+            .img-of-group{
+                .new-file-group{
+                    height: 160px;
+                    opacity: 0%;
+                }
+                
+                .new-img-group{
+                    @include tamaño (250px, 160px);
+                    border: 0.5px solid rgb(150, 150, 150);
+                    position:absolute;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    img {
+                        width: 100%;
+                        height: inherit;
+                        object-fit: cover;
+                    }
+
+                    svg{
+                        margin: auto;
+                        fill: rgb(211, 211, 211);
                     }
                 }
+
+                &:hover .new-img-group{
+                    background-color: rgba(78, 78, 78, 0.144);
+                }
+            }
+
+            input, button {
+                margin: 10px auto;
+                border: 0.5px solid rgb(150, 150, 150);
+                @include tamaño (250px, 30px);
+                padding: 5px;
+                color: #000000;
+                outline: none;
+            }
+
+            #enviar-cambios-grupo{
+                transition: all 0.4s ease;
+                @include boton ($azul, white)
             }
         }
 
@@ -513,6 +657,7 @@
     }
 
     .extraBoxes {
+        z-index: 0;
         background-color: #5e5e5e48;
         position: fixed;
         @include tamaño (100%, 92%);
@@ -669,9 +814,11 @@
 
             .change-icon-div{
                 display: none;
+
                 background-color: #0400ff57;
                 position: relative;
                 top: -200px;
+                transition: all 0.3s ease;
 
                 svg{
                     fill: white;
@@ -707,6 +854,7 @@
 
             #enviar-cambios{
                 margin-top: 20px;
+                transition: all 0.4s ease;
                 @include boton ($azul, white)
             }
         }
@@ -720,4 +868,10 @@
 
 .displayNone {
     display: none !important
+}
+
+.toastify{
+    box-shadow: none !important;
+    border-radius: 10px !important;
+    font-size: 12px;
 }

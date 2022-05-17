@@ -28,6 +28,7 @@ function  abriruploadPhotoBg(){
     uploadPhotoBg.classList.remove("displayNone")
 }
 
+// cartel de perfil
 document.addEventListener("click", (event) => {
 	// para cerrar
 	if (
@@ -41,20 +42,47 @@ document.addEventListener("click", (event) => {
 	}
 });
 
+// 3 puntitos
 document.addEventListener("click", (event) => {
 	// para cerrar
 	if (
 		event.target.id != "cartel-opc-grupos" ||
-		document.querySelector(".cartel-opc-grupos").classList.contains("abierto")
+		document.querySelector(".cartel-opc-grupos")?.classList.contains("abierto")
 	) {
-		document.querySelector(".cartel-opc-grupos").classList.add("cerrado");
-        document.querySelector(".cartel-opc-grupos").classList.remove("abierto")
+		document.querySelector(".cartel-opc-grupos")?.classList.add("cerrado");
+        document.querySelector(".cartel-opc-grupos")?.classList.remove("abierto")
 	} else {
         // para abrir
-		document.querySelector(".cartel-opc-grupos").classList.add("abierto");
-        document.querySelector(".cartel-opc-grupos").classList.remove("cerrado")
+		document.querySelector(".cartel-opc-grupos")?.classList.add("abierto");
+        document.querySelector(".cartel-opc-grupos")?.classList.remove("cerrado")
+	}
+
+	if (
+		event.target.id != "list-participants" ||
+		document.querySelector(".list-participants")?.classList.contains("abierto")
+	) {
+		document.querySelector(".list-participants")?.classList.add("cerrado");
+		document.querySelector(".list-participants")?.classList.remove("abierto")
+	} else {
+		// para abrir
+		document.querySelector(".list-participants")?.classList.add("abierto");
+		document.querySelector(".list-participants")?.classList.remove("cerrado")
 	}
 });
+
+function abrirEditarGrupo(grupo){
+	document.querySelector(".editGrupo").classList.remove("displayNone")
+	document.querySelector("#new-name-group").value = ""	
+	document.querySelector(".new-file-group").value = ""
+	
+	let nombreGrupo = userGroups.find(group=> group.id == grupo).nombre
+	document.querySelector(".nombre-grupo-to-edit").innerHTML = nombreGrupo
+
+	editGroup(grupo)
+}
+function cerrarEditarGrupo(){
+	document.querySelector(".editGrupo").classList.add("displayNone")	
+}
 
 // cerrar y abrir cartel para add grupos 
 function cerrarAdd(){
@@ -112,3 +140,4 @@ function changeMode (){
 lightmodeBtn.addEventListener ("click", ()=>{
     changeMode()        
 }) 
+

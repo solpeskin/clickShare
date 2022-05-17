@@ -10,6 +10,7 @@ if (!currentUser) {
 function perfilUsuario() {
 	nombreUsuarioTxt.innerHTML = currentUser?.nombre;
 }
+
 perfilUsuario();
  
 // grupos
@@ -25,5 +26,21 @@ function generarUID (){
         var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
         return v.toString(16);
     });
+}
+
+function showToastify (message, color){
+    Toastify({
+        text: message,
+        duration: 3000,
+        gravity: "bottom",
+        position: "center", 
+        className: "toastify",
+        stopOnFocus: true, 
+        style: {
+            width: "180px",
+            padding: "10px",
+            background: color,
+        },
+    }).showToast();
 }
 

@@ -16,5 +16,17 @@ class user {
     }
 }
 
+//lista de todos los usuarios
+let usuarios = [];
+
+// leer datos generales de firebase
+db.collection("usuarios")
+	.get()
+	.then((querySnapshot) => {
+		querySnapshot.forEach((doc) => {
+			usuarios.push(doc.data());
+		});
+	})
+;
 
 
