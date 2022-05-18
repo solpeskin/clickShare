@@ -1419,6 +1419,21 @@ footer .pagsTexts .texts h5, footer .pagsTexts .redes h5 {
           align-items: center;
 }
 
+#gruposBody header .perfil #fotoPerfil {
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+#gruposBody header .perfil #fotoPerfil img {
+  pointer-events: none;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
 #gruposBody header .perfil #fotoPerfil:hover {
   cursor: pointer;
   -webkit-filter: opacity(70%);
@@ -2190,6 +2205,11 @@ footer .pagsTexts .texts h5, footer .pagsTexts .redes h5 {
   padding: 40px;
 }
 
+#gruposBody .account-settings h6 {
+  padding: 0px;
+  color: #E04DB0;
+}
+
 #gruposBody .account-settings .perfilImg {
   border-radius: 50%;
   width: 200px;
@@ -2202,11 +2222,23 @@ footer .pagsTexts .texts h5, footer .pagsTexts .redes h5 {
   border-radius: 50%;
 }
 
+#gruposBody .account-settings .perfilImg .IMGperfil {
+  overflow: hidden;
+}
+
+#gruposBody .account-settings .perfilImg .IMGperfil img {
+  pointer-events: none;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
 #gruposBody .account-settings .perfilImg .IMGperfil .perfilCotent {
+  -o-object-fit: cover;
+     object-fit: cover;
   width: 100%;
   height: 100%;
-  height: 100%;
-  width: 100%;
 }
 
 #gruposBody .account-settings .perfilImg .change-icon-div {
@@ -2246,8 +2278,14 @@ footer .pagsTexts .texts h5, footer .pagsTexts .redes h5 {
           align-items: center;
 }
 
+#gruposBody .account-settings #eliminar-cuenta {
+  cursor: pointer;
+  text-decoration: underline;
+  margin-top: 20px;
+}
+
 #gruposBody .account-settings label p {
-  margin: 20px 0px 5px 0;
+  margin: 0px 0px 5px 0;
 }
 
 #gruposBody .account-settings label input {
@@ -2258,7 +2296,7 @@ footer .pagsTexts .texts h5, footer .pagsTexts .redes h5 {
   padding: 10px;
 }
 
-#gruposBody .account-settings label #enviar-cambios {
+#gruposBody .account-settings label #enviar-cambios-user {
   margin-top: 20px;
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
@@ -2267,7 +2305,7 @@ footer .pagsTexts .texts h5, footer .pagsTexts .redes h5 {
   border: 1px solid #1c57d3;
 }
 
-#gruposBody .account-settings label #enviar-cambios:hover {
+#gruposBody .account-settings label #enviar-cambios-user:hover {
   background: none;
   color: #1c57d3;
 }

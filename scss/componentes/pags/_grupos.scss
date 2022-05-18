@@ -222,9 +222,21 @@
             @include flex (row, auto);
             align-items: center;
 
-            #fotoPerfil:hover{
-                cursor: pointer;
-                filter: opacity(70%);
+            #fotoPerfil {
+                @include tamaño (40px, 40px);
+                overflow: hidden;
+                border-radius: 50%;
+
+                img {
+                    pointer-events: none;
+                    object-fit: cover;
+                    @include tamaño (100%, 100%)
+                }
+
+                &:hover{
+                    cursor: pointer;
+                    filter: opacity(70%);
+                }
             }
 
             .nombreUsuario {
@@ -794,6 +806,11 @@
         align-items: center;
         padding: 40px;
 
+        h6 {
+            padding: 0px;
+            color: $rosaOscuro;
+        }
+
         .perfilImg{
             border-radius: 50%;
             @include tamaño (200px,200px);
@@ -805,10 +822,19 @@
             }
 
             .IMGperfil {
-                .perfilCotent {
-                    @include tamaño (100%, 100%);
-                    height: 100%;
+                overflow: hidden;
+                
+                img {
+                    pointer-events: none;
+                    object-fit: cover;
                     width: 100%;
+                    height: 100%;
+                }
+
+                .perfilCotent {
+                    object-fit: cover;
+                    width: 100%;
+                    height: 100%;
                 }
             }
 
@@ -840,9 +866,15 @@
             }
         }
 
+        #eliminar-cuenta{
+            cursor: pointer;
+            text-decoration: underline;
+            margin-top: 20px;
+        }
+
         label {
             p {
-                margin: 20px 0px 5px 0;
+                margin: 0px 0px 5px 0;
             }
 
             input {
@@ -852,7 +884,7 @@
                 padding: 10px;
             }
 
-            #enviar-cambios{
+            #enviar-cambios-user{
                 margin-top: 20px;
                 transition: all 0.4s ease;
                 @include boton ($azul, white)

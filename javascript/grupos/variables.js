@@ -56,6 +56,7 @@ function getUserGroups(username) {
 		.get()
 		.then((res) => {
             userData = res.data()
+            currentUser = userData
             
             userData.grupos.forEach((group)=>{
                 searchGroupByID(group)
@@ -63,4 +64,9 @@ function getUserGroups(username) {
 
 		})
     ;
+}
+
+function eliminarCuenta (){
+    db.collection("usuarios").doc(`${userData.id}`).delete()
+    window.location.assign("../../index.html")
 }

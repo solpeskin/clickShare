@@ -42,7 +42,7 @@ function actualizarLike (photoID, state){
     userData.fotos[indexFoto].liked = state
 
     db.collection("usuarios")
-    .doc(`${currentUser.id}`)
+    .doc(`${userData.id}`)
     .update({
         fotos : userData.fotos
     })

@@ -67,14 +67,14 @@ function crearGrupo (){
             shortId: generarID(),
             id: generarUID(),
             nombre: nombreGrupo.value.trim(),
-            creador: currentUser.id,
-            participantes: [`${currentUser.id}`],
+            creador: userData.id,
+            participantes: [`${userData.id}`],
         };
 
         userData.grupos.push(grupoNuevo.id);
         userGroups.push(grupoNuevo)
         
-        setGroup(currentUser.id, userData.grupos)
+        setGroup(userData.id, userData.grupos)
         createGroupOnFb (grupoNuevo)
         cerrarAdd()
         domGrupo(grupoNuevo);
@@ -84,7 +84,6 @@ function crearGrupo (){
 let grupoCambiar;
 function editGroup(grupo){
     grupoCambiar = userGroups.find(group=>group.id == grupo)
-    console.log(userGroups)
 
     document.querySelector("#enviar-cambios-grupo").onclick = ()=> {
         if (document.querySelector("#new-name-group").value || document.querySelector(".new-file-group").files[0]){

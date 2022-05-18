@@ -10,7 +10,7 @@ function salirGrupo(grupo){
     userGroups.splice(eliminar, 1) 
 
     // eliminar participante 
-    eliminar = groupPressed.participantes.indexOf(groupPressed.participantes.find(participante=> participante == currentUser.id))
+    eliminar = groupPressed.participantes.indexOf(groupPressed.participantes.find(participante=> participante == userData.id))
     groupPressed.participantes.splice(eliminar, 1)
 
     editGroupsFB()
@@ -22,7 +22,7 @@ function salirGrupo(grupo){
 
 // actualizar datos fb
 function editGroupsFB(){
-    db.collection("usuarios").doc(`${currentUser.id}`).update({
+    db.collection("usuarios").doc(`${userData.id}`).update({
         grupos : userData.grupos
     })
 

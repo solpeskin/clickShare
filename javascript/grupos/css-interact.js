@@ -80,6 +80,7 @@ function abrirEditarGrupo(grupo){
 
 	editGroup(grupo)
 }
+
 function cerrarEditarGrupo(){
 	document.querySelector(".editGrupo").classList.add("displayNone")	
 }

@@ -1,14 +1,17 @@
 cargarPagina()
 function cargarPagina (){
     showOnScreen.innerHTML = `
-            <div id="allGroups">
-                <div class="addNewGroup" onclick="abrirAdd()">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-plus-circle-fill " viewBox="0 0 16 16">
-                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
-                      </svg>
-                </div>
-            </div>  `
+    <div id="allGroups">
+        <div class="addNewGroup" onclick="abrirAdd()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-plus-circle-fill " viewBox="0 0 16 16">
+                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+            </svg>
+        </div>
+    </div>  `
+
     getUserGroups(currentUser.id)
+    localStorage.setItem("currentUser", JSON.stringify(currentUser) )
+    perfilUsuario()
 }
 
 function abrirCuenta(){
@@ -22,7 +25,7 @@ function abrirCuenta(){
                         </svg>
                     </div>
                     <div class="change-icon-div">
-                        <input type="file" id="nuevo-fotoperfil" accept="image/*,.pdf image/*,.jpg image/*,.png image/*,.jpeg">
+                        <input type="file" id="nuevo-fotoperfil" onchange="previewIcon()" accept="image/*,.pdf image/*,.jpg image/*,.png image/*,.jpeg">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-camera" viewBox="0 0 16 16">
                             <path d="M15 12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h1.172a3 3 0 0 0 2.12-.879l.83-.828A1 1 0 0 1 6.827 3h2.344a1 1 0 0 1 .707.293l.828.828A3 3 0 0 0 12.828 5H14a1 1 0 0 1 1 1v6zM2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2z"/>
                             <path d="M8 11a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zm0 1a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM3 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"/>
@@ -31,19 +34,25 @@ function abrirCuenta(){
                 </div>
                 <label class="username-input-change" for="name">
                     <p>Nombre:</p>
-                    <input type="text" id="nuevo-username" placeholder="" max="15" min="4" value="">
+                    <input type="text" id="nuevo-username" placeholder="" required maxlength="15" value="">
+                    <h6 class="new-nombre-no-disponible"></h6>
                 </label>
                 <label class="username-input-change" for="mail">
                     <p>Mail:</p>
                     <input type="email" required id="nuevo-usermail" placeholder="" value="">
+                    <h6 class="new-mail-no-disponible"></h6>
                 </label>
                 <label for="submit">
-                    <input type="submit" id="enviar-cambios" value="Guardar cambios">
+                <input type="submit" id="enviar-cambios-user" value="Guardar cambios" onclick="editUser()">
                 </label>
+                <p id="eliminar-cuenta" onclick="eliminarCuenta ()">Eliminar cuenta</p>
 
             </div>`
 
     addPlaceholder()
+    if (userData.fotoPerfil){
+        document.querySelector(".IMGperfil").innerHTML = `<img src="${userData.fotoPerfil}">`
+    }
 }
 
 // cuando abro grupo
