@@ -1,24 +1,37 @@
-btnUnir.addEventListener("click", ()=>getGroups(document.querySelector(".idGrupo").value))
+btnUnir.addEventListener("click", ()=>getGroups(document.querySelector(".idGrupo").value.trim()))
 
 function getGroups(id){
-    let groupAlready;
+    if (id){
+        let groupAlready;
+        
+        // checkear si ya esta en el grupo
+        if (userGroups.find(group=>group.shortId == id)) {
+            groupAlready = true
+            showToastify("Ya estás en el grupo", "#000f33")
+        }
+        
+        // agregar participante a grupo
+        db.collection("grupos")
+        .get()
+        .then((querySnapshot) => {
+            let join;
     
-    // checkear si ya esta en el grupo
-    if (userGroups.find(group=>group.shortId == id)) {
-        groupAlready = true
-    }
+            querySnapshot.forEach(doc=>{
+                if (doc.data().shortId == id){
+                    join = doc.data()
+                }
+            })
     
-    // agregar participante a grupo
-    db.collection("grupos")
-    .get()
-    .then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-            // si existe el grupo y no está en él todavía
-            if (id == doc.data().shortId && !groupAlready) {
-                groupFound(doc.data())
+            if (join && !groupAlready){
+                console.log("yes")
+                groupFound(join)
+            }
+    
+            else if (!join){
+                showToastify("El grupo no existe", "#000f33")
             }
         });
-    });
+    }
 
 }
 
