@@ -21,8 +21,8 @@ function domFoto (photo){
             <div class= "hoverIMG">
                 <p class="person-uploaded">${userUploaded?.nombre}</p>
                 <div class ="option-image">
-                    <div class="delete-photos-div">${deleteOption}</div>
-                    <div class ="heart ${checkLike(photo)}"  onclick ="likePhoto (event, '${photo.id}')" >
+                    <div class="delete-photos-div" title="Eliminar foto">${deleteOption}</div>
+                    <div class ="heart ${checkLike(photo)}"  onclick ="likePhoto (event, '${photo.id}')" title="Like">
                         ${likedHTML(checkLike(photo))}
                     </div>
                 </div>
@@ -104,7 +104,7 @@ function createPreview (file){
     
     reader.addEventListener("load", (e)=>{
         link = e.target.result
-        dragZone.innerHTML = `<img src="${link}" alt="" class="previewIMG">`
+        dragZone.innerHTML = `<img src="${link}" alt="${inputPhoto.files[0].name}" class="previewIMG">`
     })
 }
 

@@ -38,7 +38,6 @@ function actualizarCambioUserFB(grupo, userGroup){
 function editUser(){
     if (document.querySelector("#nuevo-username").value.trim()){
         if (usuarios.find((user) => user?.nombre === document.querySelector("#nuevo-username").value.trim() ) || document.querySelector("#nuevo-username").value.trim().length <4){
-            console.log("hola")
             document.querySelector(".new-nombre-no-disponible").innerHTML = "Nombre no disponible"
         }
 

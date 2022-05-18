@@ -164,6 +164,10 @@
             #nombreGrupo{
                 color: white;
             }
+
+            svg path {
+                pointer-events: none;
+            }
         }
     }
 
@@ -311,6 +315,12 @@
 
         .grupos {
             margin: 0px 10px 50px 80px;
+            
+            h3 {
+                font-weight: 400;
+                margin-top: 50px;
+                font-size: 60px;
+            }
 
             #allGroups{
                 @include flex (row, start);
@@ -402,7 +412,7 @@
     
                 .grupoIMG, .addNewGroup{
                     cursor: pointer;
-                    margin-top: 30px;
+                    margin-top: 10px;
                     @include tamaño (200px, 200px);
                     border-radius: 30px;
                     transition: all 0.5s ease;
@@ -579,7 +589,7 @@
                         }
                         
                         &:hover .hoverIMG{
-                            background: linear-gradient(#4e4e4ea1, #9198e500);
+                            background: linear-gradient(#4e4e4ea1, #9198e500, #4e4e4ea1 );
                             opacity: 100%;
                         }
 
@@ -725,7 +735,13 @@
             }
 
             .formCrearGrupo {
-                padding: 60px 100px;
+                display: flex;
+                flex-direction: column;
+                padding: 50px 100px;
+
+                p {
+                    margin: 5px auto;
+                }
             }
     
         }

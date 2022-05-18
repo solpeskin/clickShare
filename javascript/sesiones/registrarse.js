@@ -59,15 +59,15 @@ function datoUsuario(){
 function datoContra(){
     let textoErrorContra = contra.parentElement.querySelector(".submitError");
     submitNoError(textoErrorContra);
-
-    // si es mas chico que 6
-    if (contra.value.length <6){
-        submitError(textoErrorContra, "Tu contraseña debe ser de al menos 6 caracteres.");
-    }
-
+    
     // si esta vacío
     if (!contra.value){
         submitError(textoErrorContra, "Ingrese una contraseña.");  
+    }
+
+    // si es mas chico que 6
+    else if (contra.value.length <6){
+        submitError(textoErrorContra, "Tu contraseña debe ser de al menos 6 caracteres.");
     }
 
     else {
@@ -86,7 +86,7 @@ function confirmarContra(){
     }
 
     // si no son iguales 
-    if (confirmacion.value !== contra.value){
+    else if (confirmacion.value !== contra.value){
         submitError(textoErrorConfirmacion, "La contraseña no coincide.");
     }  
 

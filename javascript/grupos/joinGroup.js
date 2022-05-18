@@ -23,7 +23,6 @@ function getGroups(id){
             })
     
             if (join && !groupAlready){
-                console.log("yes")
                 groupFound(join)
             }
     
