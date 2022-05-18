@@ -193,6 +193,7 @@
 }
 
 #gruposBody {
+    overflow: hidden;
     .cerrado {
         display: none ;
     }
@@ -907,3 +908,31 @@
     border-radius: 10px !important;
     font-size: 12px;
 }
+
+@media screen and (max-width: 961px){
+    .grupoInfo, .addNewGroup{
+        transform: scale(0.9);
+        margin-right: 10px !important;
+    }
+} 
+
+@media screen and (max-width: 700px){
+    .grupos {
+        margin-left: 10px !important;
+
+        .section-photos{
+            .IMG{
+                height: 100px !important;
+            }
+            h6 {
+                font-size: 40px !important;
+            }
+        }
+    }
+} 
+
+@media screen and (max-width: 630px){
+    #allGroups {
+        width: 400px;
+    }
+} 

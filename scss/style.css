@@ -88,7 +88,7 @@ svg {
 }
 
 #pasos {
-  padding: 20px 0;
+  padding-top: 20px;
   background-color: #000f33;
 }
 
@@ -132,7 +132,7 @@ svg {
   font-weight: 800;
 }
 
-#pasos div video {
+#pasos div video, #pasos div img {
   -webkit-box-shadow: 0px 0px 50px white;
           box-shadow: 0px 0px 50px white;
   border-radius: 30px;
@@ -142,7 +142,7 @@ svg {
   height: auto;
 }
 
-#pasos div video source {
+#pasos div video source, #pasos div img source {
   margin: 0 auto;
 }
 
@@ -1356,6 +1356,10 @@ footer .pagsTexts .texts h5, footer .pagsTexts .redes h5 {
   fill: white;
 }
 
+#gruposBody {
+  overflow: hidden;
+}
+
 #gruposBody .cerrado {
   display: none;
 }
@@ -2323,5 +2327,31 @@ footer .pagsTexts .texts h5, footer .pagsTexts .redes h5 {
           box-shadow: none !important;
   border-radius: 10px !important;
   font-size: 12px;
+}
+
+@media screen and (max-width: 961px) {
+  .grupoInfo, .addNewGroup {
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+    margin-right: 10px !important;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .grupos {
+    margin-left: 10px !important;
+  }
+  .grupos .section-photos .IMG {
+    height: 100px !important;
+  }
+  .grupos .section-photos h6 {
+    font-size: 40px !important;
+  }
+}
+
+@media screen and (max-width: 630px) {
+  #allGroups {
+    width: 400px;
+  }
 }
 /*# sourceMappingURL=style.css.map */
