@@ -22,7 +22,7 @@
             {
                 "caregoria": "grupos",
                 "pregunta": "¿Cómo cambio el nombre de un grupo?",
-                "respuesta": "Desde la configuración del grupo, te permitimos modificar varias cosas como el nombre de grupo, la descripció del grupo, entre otras."
+                "respuesta": "Desde la configuración del grupo, te permitimos modificar varias cosas como el nombre de grupo, la descripción del grupo, entre otras."
             }
         ]
     },
@@ -31,13 +31,13 @@
             {
                 "caregoria": "grupos",
                 "pregunta": "¿Cómo elimino una foto?",
-                "respuesta": "Una vez mandada la foto, los participantes tendrán acceso a ella excepto que la elimines. Para eso, tendrás que eliminarla desde 'opciones de foto'. Ten en cuenta que si un participante del grupo ya ha descargado la foto, no queda a nuestra disposición"
+                "respuesta": "Una vez mandada la foto, los participantes tendrán acceso a ella excepto que la elimines. Para eso, tendrás que eliminarla desde 'opciones de foto'. Ten en cuenta que si un participante del grupo ya ha descargado la foto, excede de nuestra responsabilidad."
             },
         
             {
                 "caregoria": "grupos",
                 "pregunta": "¿Cómo elimino a un participante?",
-                "respuesta": "Para eliminar a un participante, debés ser el creador del grupo. Si así es, ve a la configuración del grupo, participantes, eliminar y presione sobre el participante que deseas eliminar"
+                "respuesta": "Para eliminar a un participante, debés ser el creador del grupo. Si así es, ve a la configuración del grupo, 'participantes', 'eliminar' y presione sobre el participante que deseas eliminar"
             },
             
             {
@@ -49,7 +49,7 @@
             {
                 "caregoria": "problemas",
                 "pregunta": "No se mandan las fotos correctamente",
-                "respuesta": "Asegurate que Click&Share tenga acceso a tus fotos. Si no es así, puedes cambiarlo desde los ajustes de tu teléfono."
+                "respuesta": "Asegurate de que Click&Share tenga acceso a tus fotos. Si no es así, puedes cambiarlo desde los ajustes de tu teléfono."
             }
         ]
     }
