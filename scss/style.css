@@ -1737,6 +1737,10 @@ footer .pagsTexts .texts h5, footer .pagsTexts .redes h5 {
   border-bottom: #d8d8d8 1px solid;
 }
 
+#gruposBody .grupos-pag .grupos .group-photos-section .infoGroup .list-participants li p {
+  margin: 0px;
+}
+
 #gruposBody .grupos-pag .grupos .group-photos-section .infoGroup .cartel-opc-grupos {
   position: absolute;
   top: 170px;

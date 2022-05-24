@@ -110,8 +110,10 @@ function openPhotos (group){
     groupPressed.participantes.forEach(participante =>{
         let li = document.createElement("li")
 
-        let p = usuarios.find(usuario => participante == usuario.id).nombre
-        li.innerHTML = p
+        let participanteInfo = usuarios.find(usuario => participante == usuario.id)
+        li.innerHTML = 
+        `
+        <p>${participanteInfo.nombre}</p>`
         document.querySelector(".list-participants").appendChild(li)
     })
 
