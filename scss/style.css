@@ -77,13 +77,19 @@ svg {
   color: #1c57d3;
 }
 
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 500px) {
+  #inicio button {
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 480px) {
   #inicio {
     height: 100vh;
   }
   #inicio h1 {
     width: 200px;
-    font-size: 80px;
+    font-size: 70px;
   }
 }
 
@@ -95,10 +101,9 @@ svg {
 #pasos div {
   position: -webkit-sticky;
   position: sticky;
-  top: 2%;
-  padding: 20px 0;
+  top: 5%;
+  padding: 20px 0 50px 0;
   background-color: #000f33;
-  margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -147,52 +152,39 @@ svg {
 }
 
 @media screen and (max-width: 961px) {
-  #pasos {
-    padding: 50px;
-  }
-  #pasos div {
-    width: 650px;
-    padding-top: 20px;
-  }
-  #pasos div .title {
-    width: 650px;
-    font-size: 150px;
-    line-height: 120px;
+  #pasos div video, #pasos img {
+    height: 300px;
+    width: auto;
   }
 }
 
-@media screen and (max-width: 750px) {
-  #pasos div {
-    width: 480px;
-  }
-  #pasos div .title {
-    width: 480px;
-    line-height: 100px;
-    font-size: 120px;
+@media screen and (max-width: 720px) {
+  #pasos div video, #pasos img {
+    width: 80%;
+    height: auto;
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 560px) {
   #pasos div {
-    width: 350px;
+    height: 100vh;
+  }
+  #pasos div video, #pasos div img {
+    display: none;
   }
   #pasos div .title {
-    width: 350px;
+    margin: auto;
+    margin-bottom: 50px;
+    font-weight: 900;
     font-size: 100px;
+    width: 80%;
+    line-height: 100px;
+    word-wrap: break-word;
   }
-}
-
-@media screen and (max-width: 400px) {
-  #pasos {
-    padding: 20px;
-  }
-  #pasos div {
-    width: 300px;
-  }
-  #pasos div .title {
-    width: 300px;
-    font-size: 120px;
-    line-height: 90px;
+  #pasos div .explicacion {
+    margin: auto;
+    width: 80%;
+    font-size: 20px;
   }
 }
 
@@ -824,6 +816,7 @@ footer .pagsTexts .texts h5, footer .pagsTexts .redes h5 {
     padding-bottom: 10px;
   }
   .header1 .submenuOn .allMenu div button, .header1 .submenuOn .allMenu div ul button {
+    color: black;
     background: none;
     padding-bottom: 0%;
   }
@@ -2378,5 +2371,9 @@ footer .pagsTexts .texts h5, footer .pagsTexts .redes h5 {
   #allGroups {
     width: 400px;
   }
+}
+
+body {
+  overflow-x: hidden;
 }
 /*# sourceMappingURL=style.css.map */

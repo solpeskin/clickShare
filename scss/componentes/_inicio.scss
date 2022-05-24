@@ -39,14 +39,20 @@
     
 }
 
+@media screen and (max-width: 500px){
+    #inicio button {
+        margin-bottom: 30px;
+    }
+}
+
 // mobile
-@media screen and (max-width: 380px){
+@media screen and (max-width: 480px){
     #inicio {
         height: 100vh;
 
         h1 {
             width: 200px;
-            font-size: 80px;
+            font-size: 70px;
         }
     } 
 }
