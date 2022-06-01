@@ -60,7 +60,7 @@
         <div class="header-photo-options">
             <ul>
                 <li onclick="cargarPagina()">Grupos</li>
-                <li onclick="openAllPhotos()">Todas las fotos</li>
+                <li onclick="openAllPhotos()" class="element-change"></li>
                 <li onclick="openLikedPhotos()">Favoritas</li>
                 <li><a href="footer/centro-de-ayuda.html">Ayuda</a></li>
                 <li class="lightmode">
@@ -147,7 +147,7 @@
                     </div>
                     <input type="file" class="new-file-group" accept="image/*,.pdf image/*,.jpg image/*,.png image/*,.jpeg">
                 </div>
-                <input type="text" placeholder="Nombre grupo" id="new-name-group">
+                <input type="text" placeholder="Nombre grupo" id="new-name-group" maxlength="18">
                 <button id="enviar-cambios-grupo" >Guardar</button>
             </div>  
         </div>

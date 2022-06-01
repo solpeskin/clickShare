@@ -21,6 +21,8 @@
 
     .grupos-pag {
         .header-photo-options{
+            background-color: white;
+
             li {
                 &:hover {
                     background-color: #f1f1f1;
@@ -124,6 +126,7 @@
     .grupos-pag {
 
         .header-photo-options{
+            background-color: #201f23;
     
             li {
 
@@ -197,7 +200,6 @@
 }
 
 #gruposBody {
-    overflow: hidden;
     .cerrado {
         display: none ;
     }
@@ -207,6 +209,7 @@
     }
 
     header {
+        z-index: 3;
         top: 0px;
         position:fixed;
         align-items: center;
@@ -951,8 +954,73 @@
     }
 } 
 
-@media screen and (max-width: 630px){
-    #allGroups {
-        width: 400px;
+@media screen and (min-width: 630px){
+    .element-change{
+        &::after{
+            content: "Todas las fotos";
+        }
     }
 } 
+
+@media screen and (max-width: 630px){
+    .grupos h6{
+        margin-left: 50px;
+    }
+    
+    .grupos h3 {
+        margin-left: 25px;
+    }
+
+    #allGroups {
+        width: 100vw;
+
+        .grupoInfo, .addNewGroup{
+            transform: scale(0.8);
+            margin-right: 5px !important;
+        }
+
+        .addGrupo:hover{
+            transform: scale(0.9) !important;
+        }
+    }
+
+    .grupos-pag{
+        display: flex;
+        flex-direction: column;
+
+        .header-photo-options{
+            bottom: 0px;
+            position: fixed;
+            display: flex;
+            flex-direction: row;
+            z-index: 3;
+
+            padding: 0px !important;
+
+            ul {
+                height: 70px;
+                margin-bottom: 0px;
+                display: flex;
+
+                justify-content: space-around;
+                width: 100vw;
+
+                li {
+                    text-align: center;
+
+                    border-radius: 0px !important;
+                    align-self: center;
+
+                    @include tamaño (20%, 70px)
+                }
+
+                .element-change{
+                    &::after{
+                        content: "Fotos";
+                    }
+                }
+            }
+        }
+    }
+} 
+

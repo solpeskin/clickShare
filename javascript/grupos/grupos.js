@@ -86,10 +86,10 @@ function editGroup(grupo){
     grupoCambiar = userGroups.find(group=>group.id == grupo)
 
     document.querySelector("#enviar-cambios-grupo").onclick = ()=> {
-        if (document.querySelector("#new-name-group").value || document.querySelector(".new-file-group").files[0]){
+        if (document.querySelector("#new-name-group").value.trim() || document.querySelector(".new-file-group").files[0]){
 
-            if (document.querySelector("#new-name-group").value){
-                userGroups.find(group=>group.id == grupo).nombre = document.querySelector("#new-name-group").value
+            if (document.querySelector("#new-name-group").value.trim()){
+                userGroups.find(group=>group.id == grupo).nombre = document.querySelector("#new-name-group").value.trim()
             }
     
             actualizarCambioGrupoFB(grupo, grupoCambiar)

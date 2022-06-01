@@ -1202,6 +1202,10 @@ footer .pagsTexts .texts h5, footer .pagsTexts .redes h5 {
   background-color: white;
 }
 
+.light .grupos-pag .header-photo-options {
+  background-color: white;
+}
+
 .light .grupos-pag .header-photo-options li:hover {
   background-color: #f1f1f1;
 }
@@ -1290,6 +1294,10 @@ footer .pagsTexts .texts h5, footer .pagsTexts .redes h5 {
           filter: drop-shadow(0px 0px 0px white);
 }
 
+.dark .grupos-pag .header-photo-options {
+  background-color: #201f23;
+}
+
 .dark .grupos-pag .header-photo-options li:hover {
   background-color: rgba(128, 128, 128, 0.377);
 }
@@ -1353,10 +1361,6 @@ footer .pagsTexts .texts h5, footer .pagsTexts .redes h5 {
   fill: white;
 }
 
-#gruposBody {
-  overflow: hidden;
-}
-
 #gruposBody .cerrado {
   display: none;
 }
@@ -1375,6 +1379,7 @@ footer .pagsTexts .texts h5, footer .pagsTexts .redes h5 {
 }
 
 #gruposBody header {
+  z-index: 3;
   top: 0px;
   position: fixed;
   -webkit-box-align: center;
@@ -2367,9 +2372,74 @@ footer .pagsTexts .texts h5, footer .pagsTexts .redes h5 {
   }
 }
 
+@media screen and (min-width: 630px) {
+  .element-change::after {
+    content: "Todas las fotos";
+  }
+}
+
 @media screen and (max-width: 630px) {
+  .grupos h6 {
+    margin-left: 50px;
+  }
+  .grupos h3 {
+    margin-left: 25px;
+  }
   #allGroups {
-    width: 400px;
+    width: 100vw;
+  }
+  #allGroups .grupoInfo, #allGroups .addNewGroup {
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+    margin-right: 5px !important;
+  }
+  #allGroups .addGrupo:hover {
+    -webkit-transform: scale(0.9) !important;
+            transform: scale(0.9) !important;
+  }
+  .grupos-pag {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .grupos-pag .header-photo-options {
+    bottom: 0px;
+    position: fixed;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    z-index: 3;
+    padding: 0px !important;
+  }
+  .grupos-pag .header-photo-options ul {
+    height: 70px;
+    margin-bottom: 0px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    width: 100vw;
+  }
+  .grupos-pag .header-photo-options ul li {
+    text-align: center;
+    border-radius: 0px !important;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    width: 20%;
+    height: 70px;
+  }
+  .grupos-pag .header-photo-options ul .element-change::after {
+    content: "Fotos";
   }
 }
 
