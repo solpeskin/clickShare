@@ -43,10 +43,8 @@ function contraLogIn (userFound, textoErrorContra){
 
     // inicio de sesion exitoso 
     else if (userFound?.contraseña === contra.value){
-        submitNoError(textoErrorContra)
         currentUser = userFound;
-
-        localStorage.setItem("currentUser", JSON.stringify(currentUser));
+        submitNoError(textoErrorContra)
     }
 
     else {
@@ -56,6 +54,7 @@ function contraLogIn (userFound, textoErrorContra){
 
 function sesionCorrecta(){
     if (currentUser){
+        localStorage.setItem("currentUser", JSON.stringify(currentUser));
         window.location.assign("grupos.html")
     }
 }

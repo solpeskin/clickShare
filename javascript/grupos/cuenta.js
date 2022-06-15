@@ -36,7 +36,11 @@ function actualizarCambioUserFB(grupo, userGroup){
 }
 
 function editUser(){
-    if (document.querySelector("#nuevo-username").value.trim()){
+    if (userData.nombre == document.querySelector("#nuevo-username").value.trim() || userData.email == document.querySelector("#nuevo-usermail").value.trim() ) {
+        showToastify("No hay ningun cambio", "#000f33")
+    }
+
+    else if (document.querySelector("#nuevo-username").value.trim()){
         if (usuarios.find((user) => user?.nombre === document.querySelector("#nuevo-username").value.trim() ) || document.querySelector("#nuevo-username").value.trim().length <4){
             document.querySelector(".new-nombre-no-disponible").innerHTML = "Nombre no disponible"
         }
@@ -53,18 +57,15 @@ function editUser(){
         cambiosHechos += 1
     }
 
-    
+
     if (cambiosHechos){  
+        localStorage.setItem("currentUser", JSON.stringify(userData))
         actualizarCambioUserFB()
         showToastify("Cambios guardados", "#000f33")
-        cerrarEditarGrupo()
         cambiarHeader()
         abrirCuenta()
     }
 
-    else {
-        showToastify("No hay ningun cambio", "#000f33")
-    }
 }
 function actualizarCambioUserFB(){
     db.collection("usuarios")

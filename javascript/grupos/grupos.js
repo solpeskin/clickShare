@@ -11,13 +11,24 @@ function searchGroupByID (groupID){
 
 // crear grupo en html
 function domGrupo(grupo){
+    let fotoPerfil;
+
+    if (grupo.foto){
+        fotoPerfil = `<img src="${grupo.foto}">`
+    }
+
+    else {
+        fotoPerfil = 
+        `<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-image" viewBox="0 0 16 16">
+            <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+            <path d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z"/>
+        </svg>`
+    }
+
     const nuevoGrupoHTML = ` <div class="grupoInfo">
                                 <div class="grupoIMG" id="${grupo.id}" >
                                     <div class="foto-perfil-grupo" title="Abrir grupo" onclick="openPhotos ('${grupo.id}')">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-image" viewBox="0 0 16 16">
-                                            <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
-                                            <path d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z"/>
-                                        </svg>
+                                        ${fotoPerfil}
                                     </div>
                                     <div class="edit-group" onclick="abrirEditarGrupo('${grupo.id}')">
                                         <button title="Editar grupo"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
@@ -29,10 +40,6 @@ function domGrupo(grupo){
                             </div>`
 
     document.querySelector("#allGroups").innerHTML += (nuevoGrupoHTML)
-
-    if (grupo.foto){
-        document.querySelector(".foto-perfil-grupo").innerHTML = `<img src="${grupo.foto}">`
-    }
 }
 
 // subir grupos a firebase  
@@ -82,14 +89,23 @@ function crearGrupo (){
 }
 
 let grupoCambiar;
+let photoLink;
+
 function editGroup(grupo){
     grupoCambiar = userGroups.find(group=>group.id == grupo)
+
+    let previewIMG = grupoCambiar.foto ? `<img src="${grupoCambiar.foto}" alt="" class="preview-photo-group">` : previewSVG
+    document.querySelector(".new-img-group").innerHTML = previewIMG
 
     document.querySelector("#enviar-cambios-grupo").onclick = ()=> {
         if (document.querySelector("#new-name-group").value.trim() || document.querySelector(".new-file-group").files[0]){
 
             if (document.querySelector("#new-name-group").value.trim()){
                 userGroups.find(group=>group.id == grupo).nombre = document.querySelector("#new-name-group").value.trim()
+            }
+
+            else if (document.querySelector(".new-file-group").files[0]){
+                userGroups.find(group=>group.id == grupoCambiar.id).foto = photoLink
             }
     
             actualizarCambioGrupoFB(grupo, grupoCambiar)
@@ -109,9 +125,8 @@ function changeGroupPhoto (file){
     reader.readAsDataURL(file);
         
     reader.addEventListener("load", (e)=>{
-        let linkFoto = e.target.result
-        document.querySelector(".new-img-group").innerHTML = `<img src="${linkFoto}" alt="" class="preview-photo-group">`
-        userGroups.find(group=>group.id == grupoCambiar.id).foto = linkFoto
+        photoLink = e.target.result
+        document.querySelector(".new-img-group").innerHTML = `<img src="${photoLink}" alt="" class="preview-photo-group">`
     })
 }
 
